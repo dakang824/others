@@ -2,7 +2,6 @@
   <el-scrollbar
     :class="{ 'side-bar-container': true, 'is-collapse': collapse }"
   >
-    <logo />
     <el-menu
       :background-color="variables['menu-background']"
       :text-color="variables['menu-color']"
@@ -24,7 +23,6 @@
   </el-scrollbar>
 </template>
 <script>
-import Logo from "@/layouts/components/Logo";
 import SideBarItem from "zx-layouts/zx-side-bar/components/SideBarItem";
 import variables from "@/styles/variables.scss";
 import { mapGetters } from "vuex";
@@ -32,7 +30,7 @@ import { defaultOopeneds, uniqueOpened } from "@/config/settings";
 
 export default {
   name: "SideBar",
-  components: { SideBarItem, Logo },
+  components: { SideBarItem },
   data() {
     return {
       uniqueOpened,
@@ -76,7 +74,7 @@ export default {
 }
 
 .side-bar-container {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -109,6 +107,7 @@ export default {
       line-height: 46px !important;
       text-overflow: ellipsis;
       white-space: nowrap;
+
       @include active;
     }
 

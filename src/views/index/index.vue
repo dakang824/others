@@ -35,7 +35,7 @@
             <el-carousel-item>
               <a href="https://uviewui.com/" target="_blank">
                 <img
-                  style="width: 100%; height: 282px;"
+                  style="width: 100%; height: 282px"
                   src="@/assets/uView.png"
                   alt=""
               /></a>
@@ -46,7 +46,7 @@
                 target="_blank"
               >
                 <img
-                  style="width: 100%; height: 282px;"
+                  style="width: 100%; height: 282px"
                   src="@/assets/vab.png"
                   alt=""
                 />
@@ -71,7 +71,7 @@
         <el-card class="card" shadow="never">
           <div slot="header">
             <span>更新日志</span>
-            <div style="float: right;">部署时间:{{ updateTime }}</div>
+            <div style="float: right">部署时间:{{ updateTime }}</div>
           </div>
           <table class="table">
             <tr>
@@ -101,9 +101,7 @@
           </table>
           <div class="bottom-btn">
             <el-popover placement="top" width="250" trigger="hover">
-              <p>
-                付费群
-              </p>
+              <p>付费群</p>
               <el-image :src="require('@/assets/ewm.png')"></el-image>
               <a slot="reference" target="_blank">
                 <el-button type="primary">付费群 972435319</el-button>

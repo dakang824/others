@@ -18,12 +18,10 @@
           class="login-form"
           label-position="left"
         >
-          <div class="title">
-            hello !
-          </div>
+          <div class="title">hello !</div>
           <div class="title-tips">欢迎来到{{ title }}！</div>
           <el-form-item
-            style="margin-top: 49px;"
+            style="margin-top: 49px"
             prop="userName"
             class="login-form-admin"
           >

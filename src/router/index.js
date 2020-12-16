@@ -68,7 +68,7 @@ export const asyncRoutes = [
     component: Layout,
     redirect: "noRedirect",
     name: "PersonnelManagement",
-    meta: { title: "人员", icon: "users-cog", permissions: ["admin"] },
+    meta: { title: "基础信息库", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
         path: "userManagement",
@@ -92,7 +92,7 @@ export const asyncRoutes = [
     redirect: "noRedirect",
     name: "Vab",
     alwaysShow: true,
-    meta: { title: "组件", icon: "cloud" },
+    meta: { title: "业务应用", icon: "cloud" },
     children: [
       {
         path: "icon",
@@ -401,7 +401,7 @@ export const asyncRoutes = [
     redirect: "noRedirect",
     name: "Mall",
     meta: {
-      title: "商城",
+      title: "统计分析",
       icon: "shopping-cart",
       permissions: ["admin"],
     },
@@ -440,6 +440,7 @@ export const asyncRoutes = [
     component: EmptyLayout,
     redirect: "noRedirect",
     name: "Error",
+    hidden: true,
     meta: { title: "错误页", icon: "bug" },
     children: [
       {
@@ -453,6 +454,29 @@ export const asyncRoutes = [
         name: "404",
         component: () => import("@/views/404"),
         meta: { title: "404" },
+      },
+    ],
+  },
+  {
+    path: "/personnelManagement",
+    component: Layout,
+    redirect: "noRedirect",
+    name: "PersonnelManagement",
+    meta: { title: "业务考核", icon: "users-cog", permissions: ["admin"] },
+    children: [
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: () =>
+          import("@/views/personnelManagement/userManagement/index"),
+        meta: { title: "用户管理" },
+      },
+      {
+        path: "roleManagement",
+        name: "RoleManagement",
+        component: () =>
+          import("@/views/personnelManagement/roleManagement/index"),
+        meta: { title: "角色管理" },
       },
     ],
   },

@@ -51,10 +51,8 @@
       <div class="article-content" v-html="description"></div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">关闭</el-button>
-        <a style="margin-left: 10px;" target="_blank" :href="link">
-          <el-button type="primary">
-            阅读原文
-          </el-button>
+        <a style="margin-left: 10px" target="_blank" :href="link">
+          <el-button type="primary"> 阅读原文 </el-button>
         </a>
       </span>
     </el-dialog>

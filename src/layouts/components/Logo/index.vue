@@ -1,3 +1,9 @@
+<!--
+ * @Author: yukang 1172248038@qq.com
+ * @Description: 
+ * @Date: 2020-12-16 20:34:11
+ * @LastEditTime: 2020-12-16 23:31:01
+-->
 <template>
   <div class="logo-container">
     <router-link to="/">
@@ -24,6 +30,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.logo-container {
+  min-width: 366px;
+  margin-right: 20px;
+}
+
 @mixin container {
   position: relative;
   height: 56px;
@@ -36,7 +47,7 @@ export default {
   display: inline-block;
   width: 32px;
   height: 32px;
-  margin-right: 5px;
+  margin: 0 10px;
   color: $base-title-color;
   vertical-align: middle;
 }
@@ -45,17 +56,12 @@ export default {
   display: inline-block;
   overflow: hidden;
   font-size: $base-font-size-max;
-  font-weight: 600;
   line-height: 55px;
   color: $base-title-color;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   vertical-align: middle;
 }
 
 .logo-container {
-  @include container;
-
   text-align: center;
 
   .logo {
@@ -64,8 +70,6 @@ export default {
 
   .title {
     @include title;
-
-    max-width: 140px;
   }
 }
 </style>

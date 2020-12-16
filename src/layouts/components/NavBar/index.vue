@@ -1,26 +1,26 @@
 <template>
   <div class="nav-bar-container">
-    <el-row :gutter="15">
-      <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-        <div class="left-panel">
+    <div class="nav-bar">
+      <logo />
+
+      <!-- <div class="left-panel">
           <i
             :class="collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
             :title="collapse ? '展开' : '收起'"
             class="fold-unfold"
             @click="handleCollapse"
           ></i>
-        </div>
-      </el-col>
-      <el-col :xs="20" :sm="20" :md="20" :lg="20" :xl="20">
-        <div class="right-panel">
-          <el-tabs v-model="tab" @tab-click="handleClick">
-            <el-tab-pane
-              v-for="(item, index) in handleRoutes"
-              :key="index"
-              :name="'' + index + ''"
-              :label="item"
-            ></el-tab-pane>
-          </el-tabs>
+        </div> -->
+      <div class="right-panel">
+        <el-tabs v-model="tab" @tab-click="handleClick">
+          <el-tab-pane
+            v-for="(item, index) in handleRoutes"
+            :key="index"
+            :name="'' + index + ''"
+            :label="item"
+          ></el-tab-pane>
+        </el-tabs>
+        <div class="right-panel_info">
           <error-log></error-log>
           <full-screen-bar @refresh="refreshSelectedTag"></full-screen-bar>
           <vab-icon
@@ -30,21 +30,20 @@
             @click="refreshSelectedTag"
           ></vab-icon>
           <avatar></avatar>
-
-          <!--  <vab-icon
+        </div>
+        <!--  <vab-icon
             title="退出系统"
             :icon="['fas', 'sign-out-alt']"
             @click="logout"
           />-->
-        </div>
-      </el-col>
-    </el-row>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-
+import Logo from "@/layouts/components/Logo";
 import { Avatar, FullScreenBar, ErrorLog } from "@/layouts/components";
 import path from "path";
 export default {
@@ -53,6 +52,7 @@ export default {
     ErrorLog,
     FullScreenBar,
     Avatar,
+    Logo,
   },
   data() {
     return {
@@ -140,18 +140,24 @@ export default {
 <style lang="scss" scoped>
 .nav-bar-container {
   position: relative;
-  height: 50px;
+  height: 60px;
   overflow: hidden;
   user-select: none;
-  background: $base-color-white;
+  background: $base-color-default;
   box-shadow: $base-box-shadow;
+
+  .nav-bar {
+    display: flex;
+    align-items: content;
+    justify-content: space-between;
+  }
 
   .left-panel {
     display: flex;
     align-items: center;
     justify-items: center;
-    height: 50px;
-    max-height: 50px;
+    height: 60px;
+    max-height: 60px;
 
     .fold-unfold {
       margin-left: 10px;
@@ -169,10 +175,18 @@ export default {
 
   .right-panel {
     display: flex;
+    flex: 1;
     align-content: center;
     align-items: center;
-    justify-content: flex-end;
-    height: 50px;
+    justify-content: space-between;
+    height: 60px;
+
+    .right-panel_info {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: space-between;
+    }
 
     ::v-deep {
       .el-tabs {
@@ -182,6 +196,11 @@ export default {
         .el-tabs__item.is-top {
           padding: 0 20px !important;
           text-align: center;
+        }
+
+        .el-tabs__item {
+          font-size: 15px;
+          color: #fff;
         }
       }
 

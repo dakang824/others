@@ -49,6 +49,7 @@ module.exports = {
       warnings: true,
       errors: true,
     },
+    disableHostCheck: true,
     after: mockServer(),
   },
   configureWebpack(config) {

@@ -1,3 +1,9 @@
+/*
+ * @Author: yukang 1172248038@qq.com
+ * @Description:
+ * @Date: 2020-12-16 20:34:11
+ * @LastEditTime: 2020-12-17 00:01:59
+ */
 module.exports = {
   // 部署时的URL
   publicPath: "",
@@ -10,7 +16,7 @@ module.exports = {
   // 进行编译的依赖
   transpileDependencies: ["vue-echarts", "resize-detector"],
   //标题
-  title: "cleverAdmin",
+  title: "合肥市网络交易监管服务平台",
   //简写
   abbreviation: "vab",
   //开发环境端口号
@@ -34,7 +40,7 @@ module.exports = {
   //是否国定头部 固定fixed 不固定noFixed
   header: "fixed",
   //是否显示多标签页
-  tagsBar: true,
+  tagsBar: false,
   //配后端数据的接收方式application/json;charset=UTF-8或者application/x-www-form-urlencoded;charset=UTF-8
   contentType: "application/json;charset=UTF-8",
   //消息框消失时间

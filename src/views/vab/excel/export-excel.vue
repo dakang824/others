@@ -18,12 +18,8 @@
           </el-form-item>
           <el-form-item label="自动列宽">
             <el-radio-group v-model="autoWidth">
-              <el-radio :label="true">
-                是
-              </el-radio>
-              <el-radio :label="false">
-                否
-              </el-radio>
+              <el-radio :label="true"> 是 </el-radio>
+              <el-radio :label="false"> 否 </el-radio>
             </el-radio-group>
           </el-form-item>
 

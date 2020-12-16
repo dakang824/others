@@ -1,32 +1,42 @@
 <template>
-  <div class="vue-admin-beautiful-wrapper" :class="classObj">
-    <div
-      class="layout-container-vertical"
-      :class="{
-        fixed: header === 'fixed',
-        'no-tags-bar': tagsBar === 'false' || tagsBar === false,
-      }"
-    >
-      <div
-        v-if="device === 'mobile' && collapse === false"
-        class="mask"
-        @click="handleFoldSideBar"
-      />
-      <side-bar />
-      <div class="vab-main" :class="collapse ? 'is-collapse-main' : ''">
-        <div :class="header === 'fixed' ? 'fixed-header' : ''">
-          <nav-bar />
-          <tags-bar v-if="tagsBar === 'true' || tagsBar === true" />
-        </div>
-        <app-main />
-      </div>
+  <div>
+    <div :class="header === 'fixed' ? 'fixed-header' : ''">
+      <nav-bar />
     </div>
-    <back-to-top transition-name="fade"></back-to-top>
+    <div class="vue-admin-beautiful-wrapper" :class="classObj">
+      <div
+        class="layout-container-vertical"
+        :class="{
+          fixed: header === 'fixed',
+          'no-tags-bar': tagsBar === 'false' || tagsBar === false,
+        }"
+      >
+        <div
+          v-if="device === 'mobile' && collapse === false"
+          class="mask"
+          @click="handleFoldSideBar"
+        />
+        <side-bar />
+        <div class="vab-main" :class="collapse ? 'is-collapse-main' : ''">
+          <tags-bar v-if="tagsBar === 'true' || tagsBar === true" />
+          <second-side />
+          <app-main />
+        </div>
+      </div>
+      <back-to-top transition-name="fade"></back-to-top>
+    </div>
   </div>
 </template>
 
 <script>
-import { AppMain, BackToTop, NavBar, SideBar, TagsBar } from "./components";
+import {
+  AppMain,
+  BackToTop,
+  NavBar,
+  SideBar,
+  TagsBar,
+  SecondSide,
+} from "./components";
 import { mapGetters } from "vuex";
 import { tokenName } from "@/config/settings";
 import Media from "zx-media/mixin/Media";
@@ -39,6 +49,7 @@ export default {
     AppMain,
     TagsBar,
     BackToTop,
+    SecondSide,
   },
   mixins: [Media],
   data() {
@@ -112,7 +123,7 @@ export default {
     }
 
     &.fixed {
-      padding-top: 96px;
+      // padding-top: 96px;
     }
 
     &.fixed.no-tags-bar {

@@ -8,7 +8,7 @@
         <el-card>
           <div slot="header">
             商业用途 随意修改版权 提供vip群88.88元
-            <el-button style="float: right; padding: 3px 0;" type="text"
+            <el-button style="float: right; padding: 3px 0" type="text"
               >￥299</el-button
             >
           </div>
@@ -34,7 +34,7 @@
         <el-card>
           <div slot="header">
             商业用途 永久更新维护 免费附带vip群（可加4名员工）
-            <el-button style="float: right; padding: 3px 0;" type="text"
+            <el-button style="float: right; padding: 3px 0" type="text"
               >￥1499</el-button
             >
           </div>
@@ -53,7 +53,7 @@
         <el-card>
           <div slot="header">
             开源版本
-            <el-button style="float: right; padding: 3px 0;" type="text"
+            <el-button style="float: right; padding: 3px 0" type="text"
               >永久免费 个人/商业使用
             </el-button>
           </div>
@@ -70,12 +70,8 @@
                 >
               </li>
               <li>提供问题讨论群972435319</li>
-              <li>
-                提供讨论群专属文档
-              </li>
-              <li>
-                不支持自定义版权，须保留控制台打印信息
-              </li>
+              <li>提供讨论群专属文档</li>
+              <li>不支持自定义版权，须保留控制台打印信息</li>
             </ul>
             <img src="@/assets/ewm.png" alt="" />
           </div>

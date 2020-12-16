@@ -8,3 +8,4 @@ export { default as Avatar } from "@/layouts/components/Avatar";
 export { default as TopBar } from "zx-layouts/zx-top-bar";
 export { default as AppMain } from "./AppMain";
 export { default as NavBar } from "./NavBar";
+export { default as SecondSide } from "./SecondSide";
