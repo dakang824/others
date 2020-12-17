@@ -42,10 +42,11 @@
 </template>
 
 <script>
+import path from "path";
 import { mapGetters } from "vuex";
 import Logo from "@/layouts/components/Logo";
 import { Avatar, FullScreenBar, ErrorLog } from "@/layouts/components";
-import path from "path";
+import { isExternal } from "@/utils/validate";
 export default {
   name: "NavBar",
   components: {
@@ -86,7 +87,6 @@ export default {
         allArr.push(item);
       }
     });
-    this.$store.dispatch("permission/setPartialRoutes", allArr[0]);
   },
   methods: {
     handleClick(tab) {
@@ -96,7 +96,11 @@ export default {
           allArr.push(item);
         }
       });
-      this.$store.dispatch("permission/setPartialRoutes", allArr[tab.index]);
+
+      this.$router.push(this.getPath(allArr[tab.index]));
+      this.$store.commit("permission/setSecondSide", allArr[tab.index]);
+      this.$store.dispatch("permission/setPartialRoutes", {});
+      this.$baseEventBus.$emit("tableActive", allArr[tab.index]);
     },
     handleCollapse() {
       this.$store.dispatch("settings/changeCollapse");
@@ -111,6 +115,19 @@ export default {
             this.$router.push(`/login?redirect=${fullPath}`);
           });
         }
+      );
+    },
+    getPath(routePath) {
+      if (isExternal(routePath)) {
+        return routePath;
+      }
+      return path.resolve(
+        routePath.path,
+        "children" in routePath.children[0]
+          ? routePath.children[0].path +
+              "/" +
+              routePath.children[0].children[0].path
+          : routePath.children[0].path
       );
     },
     refreshSelectedTag() {
@@ -190,7 +207,6 @@ export default {
 
     ::v-deep {
       .el-tabs {
-        margin-top: 15px;
         margin-right: 15px;
 
         .el-tabs__item.is-top {
@@ -198,9 +214,19 @@ export default {
           text-align: center;
         }
 
+        .el-tabs__header {
+          margin: 0;
+        }
+
         .el-tabs__item {
+          height: 60px;
           font-size: 15px;
+          line-height: 60px;
           color: #fff;
+        }
+
+        .is-active {
+          background: rgba(0, 0, 0, 0.1);
         }
       }
 

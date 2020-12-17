@@ -6,8 +6,7 @@
         :key="index"
         :label="item.label"
         :value="item.value"
-      >
-      </el-option>
+      ></el-option>
     </el-select>
     <el-row :gutter="15">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
@@ -41,8 +40,7 @@
       :total="pagination.total"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-    >
-    </el-pagination>
+    ></el-pagination>
     <el-dialog
       width="60%"
       title="新闻详情（爬取内容无法保证数据与页面格式完整性）"
@@ -52,7 +50,7 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">关闭</el-button>
         <a style="margin-left: 10px" target="_blank" :href="link">
-          <el-button type="primary"> 阅读原文 </el-button>
+          <el-button type="primary">阅读原文</el-button>
         </a>
       </span>
     </el-dialog>

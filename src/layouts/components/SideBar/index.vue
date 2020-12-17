@@ -23,7 +23,7 @@
   </el-scrollbar>
 </template>
 <script>
-import SideBarItem from "zx-layouts/zx-side-bar/components/SideBarItem";
+import SideBarItem from "./SideBarItem";
 import variables from "@/styles/variables.scss";
 import { mapGetters } from "vuex";
 import { defaultOopeneds, uniqueOpened } from "@/config/settings";
@@ -83,7 +83,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   background: $base-menu-background;
-  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  // box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   transition: all 0.2s ease-in-out;
 
   ::v-deep {

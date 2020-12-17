@@ -2,12 +2,13 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-16 20:34:11
- * @LastEditTime: 2020-12-16 23:31:01
+ * @LastEditTime: 2020-12-17 12:56:40
 -->
 <template>
   <div class="logo-container">
     <router-link to="/">
-      <vab-remix-icon class="logo" icon-class="chat-smile-3-fill" />
+      <!-- <vab-remix-icon class="logo" icon-class="chat-smile-3-fill" /> -->
+      <img src="@/assets/logo.png" class="logo" />
       <span class="title" :title="title">
         {{ title }}
       </span>

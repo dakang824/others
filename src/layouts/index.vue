@@ -127,7 +127,7 @@ export default {
     }
 
     &.fixed.no-tags-bar {
-      padding-top: 56px;
+      // padding-top: 56px;
     }
 
     .vab-main {

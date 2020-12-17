@@ -2,7 +2,7 @@
   <div class="index-container">
     <el-row :gutter="15">
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
-        <el-card shadow="never">
+        <el-card shadow="never" class="card">
           <div slot="header">
             <span>授权数</span>
           </div>
@@ -11,51 +11,10 @@
             theme="vab-echarts-theme"
             :options="sqs"
           />
-          <div class="bottom">
-            <span
-              >总授权数:
-              <vab-count
-                :start-val="config2.startVal"
-                :end-val="config2.endVal"
-                :duration="config2.duration"
-                :separator="config2.separator"
-                :prefix="config2.prefix"
-                :suffix="config2.suffix"
-                :decimals="config2.decimals"
-            /></span>
-          </div>
         </el-card>
       </el-col>
+
       <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-        <el-card shadow="never">
-          <div slot="header">
-            <span>友情链接</span>
-          </div>
-          <el-carousel height="282px">
-            <el-carousel-item>
-              <a href="https://uviewui.com/" target="_blank">
-                <img
-                  style="width: 100%; height: 282px"
-                  src="@/assets/uView.png"
-                  alt=""
-              /></a>
-            </el-carousel-item>
-            <el-carousel-item>
-              <a
-                href="https://github.com/chuzhixin/vue-admin-beautiful"
-                target="_blank"
-              >
-                <img
-                  style="width: 100%; height: 282px"
-                  src="@/assets/vab.png"
-                  alt=""
-                />
-              </a>
-            </el-carousel-item>
-          </el-carousel>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
         <el-card class="card" shadow="never">
           <div slot="header">
             <span>销售量/签单量</span>
@@ -67,7 +26,7 @@
           />
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+      <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
         <el-card class="card" shadow="never">
           <div slot="header">
             <span>更新日志</span>
@@ -99,28 +58,6 @@
               <td>{{ dependencies.axios }}</td>
             </tr>
           </table>
-          <div class="bottom-btn">
-            <el-popover placement="top" width="250" trigger="hover">
-              <p>付费群</p>
-              <el-image :src="require('@/assets/ewm.png')"></el-image>
-              <a slot="reference" target="_blank">
-                <el-button type="primary">付费群 972435319</el-button>
-              </a>
-            </el-popover>
-            <el-button type="primary">vue讨论群 685641057 </el-button>
-            <el-button type="primary">uView讨论群 1042987248 </el-button>
-            <a @click="handleChangeTheme">
-              <el-button type="danger">修改主题和布局</el-button>
-            </a>
-            <a
-              target="_blank"
-              href="https://github.com/chuzhixin/vue-admin-beautiful"
-            >
-              <el-button type="danger">
-                本项目基于github开源项目修改,点击这里跳转到原项目
-              </el-button>
-            </a>
-          </div>
         </el-card>
       </el-col>
     </el-row>
@@ -129,7 +66,7 @@
 
 <script>
 import VabChart from "@/plugins/echarts";
-import VabCount from "@/plugins/vabCount";
+// import VabCount from "@/plugins/vabCount";
 import { dependencies, devDependencies } from "../../../package.json";
 import { getList } from "@/api/changeLog";
 import { getNoticeList } from "@/api/notice";
@@ -138,7 +75,7 @@ export default {
   name: "Index",
   components: {
     VabChart,
-    VabCount,
+    // VabCount,
   },
   data() {
     return {
@@ -542,8 +479,6 @@ export default {
   }
 
   .card {
-    min-height: 395px;
-
     ::v-deep {
       .el-card__body {
         .echarts {

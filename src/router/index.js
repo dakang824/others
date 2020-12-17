@@ -75,14 +75,105 @@ export const asyncRoutes = [
         name: "UserManagement",
         component: () =>
           import("@/views/personnelManagement/userManagement/index"),
-        meta: { title: "用户管理" },
+        meta: { title: "市场信息库" },
+        children: [
+          {
+            path: "awesomeIcon",
+            name: "AwesomeIcon",
+            component: () => import("@/views/vab/icon/index"),
+            meta: { title: "注册信息库" },
+          },
+          {
+            path: "remixIcon",
+            name: "RemixIcon",
+            component: () => import("@/views/vab/icon/remixIcon"),
+            meta: { title: "企业年报库" },
+            disable: true,
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "餐饮许可信息管理" },
+          },
+        ],
       },
       {
         path: "roleManagement",
         name: "RoleManagement",
         component: () =>
           import("@/views/personnelManagement/roleManagement/index"),
-        meta: { title: "角色管理" },
+        meta: { title: "网络载体库" },
+        children: [
+          {
+            path: "awesomeIcon",
+            name: "AwesomeIcon",
+            component: () => import("@/views/vab/icon/index"),
+            meta: { title: "本地平台网点库" },
+          },
+          {
+            path: "remixIcon",
+            name: "RemixIcon",
+            component: () => import("@/views/vab/icon/remixIcon"),
+            meta: { title: "异地平台网点库" },
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "网站库" },
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "移动端数据管理" },
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "餐饮平台网店库" },
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "排除库" },
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "关停库" },
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "认领库" },
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "重点库" },
+          },
+        ],
+      },
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: () =>
+          import("@/views/personnelManagement/userManagement/index"),
+        meta: { title: "网络商品库" },
+      },
+      {
+        path: "roleManagement",
+        name: "RoleManagement",
+        component: () =>
+          import("@/views/personnelManagement/roleManagement/index"),
+        meta: { title: "商品评价信息管理" },
       },
     ],
   },
@@ -95,42 +186,12 @@ export const asyncRoutes = [
     meta: { title: "业务应用", icon: "cloud" },
     children: [
       {
-        path: "icon",
-        component: EmptyLayout,
-        redirect: "noRedirect",
-        name: "Icon",
-        meta: {
-          title: "图标",
-          permissions: ["admin"],
-        },
-        children: [
-          {
-            path: "awesomeIcon",
-            name: "AwesomeIcon",
-            component: () => import("@/views/vab/icon/index"),
-            meta: { title: "常规图标" },
-          },
-          {
-            path: "remixIcon",
-            name: "RemixIcon",
-            component: () => import("@/views/vab/icon/remixIcon"),
-            meta: { title: "小清新图标" },
-          },
-          {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
-            meta: { title: "多彩图标" },
-          },
-        ],
-      },
-      {
         path: "table",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Table",
         meta: {
-          title: "表格",
+          title: "行政指导",
           permissions: ["admin"],
         },
         children: [
@@ -148,6 +209,37 @@ export const asyncRoutes = [
           },
         ],
       },
+      {
+        path: "icon",
+        component: EmptyLayout,
+        redirect: "noRedirect",
+        name: "Icon",
+        meta: {
+          title: "案件管理",
+          permissions: ["admin"],
+        },
+        children: [
+          {
+            path: "awesomeIcon",
+            name: "AwesomeIcon",
+            component: () => import("@/views/vab/icon/index"),
+            meta: { title: "一般案件管理" },
+          },
+          {
+            path: "remixIcon",
+            name: "RemixIcon",
+            component: () => import("@/views/vab/icon/remixIcon"),
+            meta: { title: "对接案件管理" },
+          },
+          {
+            path: "colorfulIcon",
+            name: "ColorfulIcon",
+            component: () => import("@/views/vab/icon/colorfulIcon"),
+            meta: { title: "统计分析" },
+          },
+        ],
+      },
+
       {
         path: "map",
         name: "Map",
@@ -441,7 +533,7 @@ export const asyncRoutes = [
     redirect: "noRedirect",
     name: "Error",
     hidden: true,
-    meta: { title: "错误页", icon: "bug" },
+    meta: { title: "业务考核", icon: "bug" },
     children: [
       {
         path: "/401",
@@ -462,7 +554,7 @@ export const asyncRoutes = [
     component: Layout,
     redirect: "noRedirect",
     name: "PersonnelManagement",
-    meta: { title: "业务考核", icon: "users-cog", permissions: ["admin"] },
+    meta: { title: "信用建设", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
         path: "userManagement",
@@ -477,6 +569,54 @@ export const asyncRoutes = [
         component: () =>
           import("@/views/personnelManagement/roleManagement/index"),
         meta: { title: "角色管理" },
+      },
+    ],
+  },
+  {
+    path: "/personnelManagement",
+    component: Layout,
+    redirect: "noRedirect",
+    name: "PersonnelManagement",
+    meta: { title: "数据分析", icon: "users-cog", permissions: ["admin"] },
+    children: [
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: () =>
+          import("@/views/personnelManagement/userManagement/index"),
+        meta: { title: "用户管理" },
+      },
+    ],
+  },
+  {
+    path: "/personnelManagement",
+    component: Layout,
+    redirect: "noRedirect",
+    name: "PersonnelManagement",
+    meta: { title: "风险预测", icon: "users-cog", permissions: ["admin"] },
+    children: [
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: () =>
+          import("@/views/personnelManagement/userManagement/index"),
+        meta: { title: "用户管理" },
+      },
+    ],
+  },
+  {
+    path: "/personnelManagement",
+    component: Layout,
+    redirect: "noRedirect",
+    name: "PersonnelManagement",
+    meta: { title: "市场监测", icon: "users-cog", permissions: ["admin"] },
+    children: [
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: () =>
+          import("@/views/personnelManagement/userManagement/index"),
+        meta: { title: "用户管理" },
       },
     ],
   },

@@ -1,11 +1,18 @@
+/*
+ * @Author: yukang 1172248038@qq.com
+ * @Description:
+ * @Date: 2020-12-16 20:34:11
+ * @LastEditTime: 2020-12-17 09:13:43
+ */
 import { asyncRoutes, constantRoutes } from "@/router";
 import { getRouterList } from "@/api/router";
 import { filterAllRoutes, filterAsyncRoutes } from "@/utils/handleRoutes";
 
-const state = { routes: [], partialRoutes: [] };
+const state = { routes: [], partialRoutes: [], secondSide: {} };
 const getters = {
   routes: (state) => state.routes,
   partialRoutes: (state) => state.partialRoutes,
+  secondSide: (state) => state.secondSide,
 };
 const mutations = {
   setRoutes(state, routes) {
@@ -17,6 +24,9 @@ const mutations = {
   setPartialRoutes(state, routes) {
     state.partialRoutes = constantRoutes.concat(routes);
   },
+  setSecondSide(state, routes) {
+    state.secondSide = routes;
+  },
 };
 const actions = {
   async setRoutes({ commit }, permissions) {
@@ -26,7 +36,6 @@ const actions = {
     } else {
       accessedRoutes = await filterAsyncRoutes(asyncRoutes, permissions);
     }
-    console.log(accessedRoutes);
     commit("setRoutes", accessedRoutes);
     return accessedRoutes;
   },
