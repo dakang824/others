@@ -64,23 +64,22 @@ export const asyncRoutes = [
     ],
   }, */
   {
-    path: "/personnelManagement",
+    path: "/baseInfo",
     component: Layout,
     redirect: "noRedirect",
-    name: "PersonnelManagement",
-    meta: { title: "基础信息库", icon: "users-cog", permissions: ["admin"] },
+    name: "BaseInfo",
+    meta: { title: "基础信息库", icon: "users-cog" },
     children: [
       {
         path: "userManagement",
         name: "UserManagement",
-        component: () =>
-          import("@/views/personnelManagement/userManagement/index"),
+        component: EmptyLayout,
         meta: { title: "市场信息库" },
         children: [
           {
-            path: "awesomeIcon",
-            name: "AwesomeIcon",
-            component: () => import("@/views/vab/icon/index"),
+            path: "register",
+            name: "Register",
+            component: () => import("@/views/baseInfo/marketInfo/register"),
             meta: { title: "注册信息库" },
           },
           {
@@ -91,9 +90,9 @@ export const asyncRoutes = [
             disable: true,
           },
           {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            path: "restaurant",
+            name: "Restaurant",
+            component: () => import("@/views/baseInfo/marketInfo/restaurant"),
             meta: { title: "餐饮许可信息管理" },
           },
         ],
@@ -101,62 +100,75 @@ export const asyncRoutes = [
       {
         path: "roleManagement",
         name: "RoleManagement",
-        component: () =>
-          import("@/views/personnelManagement/roleManagement/index"),
+        component: EmptyLayout,
         meta: { title: "网络载体库" },
         children: [
           {
-            path: "awesomeIcon",
-            name: "AwesomeIcon",
-            component: () => import("@/views/vab/icon/index"),
-            meta: { title: "本地平台网点库" },
+            path: "local-platform-online-store",
+            name: "LocalPlatformOnlineStore",
+            component: () =>
+              import(
+                "@/views/baseInfo/networkCarrier/local-platform-online-store"
+              ),
+            meta: { title: "本地平台网店库" },
           },
           {
-            path: "remixIcon",
-            name: "RemixIcon",
-            component: () => import("@/views/vab/icon/remixIcon"),
-            meta: { title: "异地平台网点库" },
+            path: "remote-platform-online-store",
+            name: "RemotePlatformOnlineStore",
+            component: () =>
+              import(
+                "@/views/baseInfo/networkCarrier/remote-platform-online-store"
+              ),
+            meta: { title: "异地平台网店库" },
           },
           {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            path: "websit",
+            name: "Websit",
+            component: () => import("@/views/baseInfo/networkCarrier/websit"),
             meta: { title: "网站库" },
           },
           {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            path: "mobile-data-management",
+            name: "MobileDataManagement",
+            component: () =>
+              import("@/views/baseInfo/networkCarrier/mobile-data-management"),
             meta: { title: "移动端数据管理" },
           },
           {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            path: "online-restaurant-of-catering-platform",
+            name: "OnlineRestaurantOfCateringPlatform",
+            component: () =>
+              import(
+                "@/views/baseInfo/networkCarrier/online-restaurant-of-catering-platform"
+              ),
             meta: { title: "餐饮平台网店库" },
           },
           {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            path: "exclude-library",
+            name: "ExcludeLibrary",
+            component: () =>
+              import("@/views/baseInfo/networkCarrier/exclude-library"),
             meta: { title: "排除库" },
           },
           {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            path: "shut-down-the-warehouse",
+            name: "ShutDownTheWarehouse",
+            component: () =>
+              import("@/views/baseInfo/networkCarrier/shut-down-the-warehouse"),
             meta: { title: "关停库" },
           },
           {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            path: "claim-librar",
+            name: "ClaimLibrar",
+            component: () =>
+              import("@/views/baseInfo/networkCarrier/claim-library"),
             meta: { title: "认领库" },
           },
           {
-            path: "colorfulIcon",
-            name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            path: "key-database",
+            name: "KeyDatabase",
+            component: () =>
+              import("@/views/baseInfo/networkCarrier/key-database"),
             meta: { title: "重点库" },
           },
         ],
@@ -164,15 +176,13 @@ export const asyncRoutes = [
       {
         path: "userManagement",
         name: "UserManagement",
-        component: () =>
-          import("@/views/personnelManagement/userManagement/index"),
+        component: () => import("@/views/baseInfo/userManagement/index"),
         meta: { title: "网络商品库" },
       },
       {
         path: "roleManagement",
         name: "RoleManagement",
-        component: () =>
-          import("@/views/personnelManagement/roleManagement/index"),
+        component: () => import("@/views/baseInfo/roleManagement/index"),
         meta: { title: "商品评价信息管理" },
       },
     ],
@@ -196,16 +206,39 @@ export const asyncRoutes = [
         },
         children: [
           {
-            path: "comprehensiveTable",
-            name: "ComprehensiveTable",
-            component: () => import("@/views/vab/table/index"),
-            meta: { title: "综合表格" },
+            path: "administration",
+            name: "administration",
+            component: () => import("@/views/businessApp/administration"),
+            meta: { title: "一般行政指导" },
+            disable: true,
           },
           {
-            path: "inlineEditTable",
+            path: "administration-easy",
             name: "InlineEditTable",
-            component: () => import("@/views/vab/table/inlineEditTable"),
-            meta: { title: "行内编辑" },
+            component: () => import("@/views/businessApp/administration"),
+            meta: { title: "简易行政指导" },
+            disable: true,
+          },
+          {
+            path: "enterprise-training",
+            name: "ComprehensiveTable",
+            component: () => import("@/views/businessApp/administration"),
+            meta: { title: "企业培训管理" },
+            disable: true,
+          },
+          {
+            path: "legal-provisions",
+            name: "InlineEditTable",
+            component: () => import("@/views/businessApp/administration"),
+            meta: { title: "法律条文管理" },
+            disable: true,
+          },
+          {
+            path: "statistical-analysis",
+            name: "InlineEditTable",
+            component: () => import("@/views/businessApp/administration"),
+            meta: { title: "统计分析" },
+            disable: true,
           },
         ],
       },
@@ -220,270 +253,344 @@ export const asyncRoutes = [
         },
         children: [
           {
-            path: "awesomeIcon",
+            path: "general-case-management",
             name: "AwesomeIcon",
-            component: () => import("@/views/vab/icon/index"),
+            component: () =>
+              import(
+                "@/views/businessApp/case-management/general-case-management"
+              ),
             meta: { title: "一般案件管理" },
           },
           {
-            path: "remixIcon",
-            name: "RemixIcon",
-            component: () => import("@/views/vab/icon/remixIcon"),
+            path: "docking-case-management",
+            name: "DockingCaseManagement",
+            component: () =>
+              import(
+                "@/views/businessApp/case-management/docking-case-management"
+              ),
             meta: { title: "对接案件管理" },
           },
           {
-            path: "colorfulIcon",
+            path: "statistical-analysis",
             name: "ColorfulIcon",
-            component: () => import("@/views/vab/icon/colorfulIcon"),
+            component: () =>
+              import(
+                "@/views/businessApp/case-management/statistical-analysis"
+              ),
             meta: { title: "统计分析" },
           },
         ],
       },
-
       {
-        path: "map",
-        name: "Map",
-        component: () => import("@/views/vab/map/index"),
-        meta: { title: "地图", permissions: ["admin"] },
-      },
-      {
-        path: "webSocket",
-        name: "WebSocket",
-        component: () => import("@/views/vab/webSocket/index"),
-        meta: { title: "webSocket", permissions: ["admin"] },
-      },
-      {
-        path: "form",
-        name: "Form",
-        component: () => import("@/views/vab/form/index"),
-        meta: { title: "表单", permissions: ["admin"] },
-      },
-      {
-        path: "element",
-        name: "Element",
-        component: () => import("@/views/vab/element/index"),
-        meta: { title: "常用组件", permissions: ["admin"] },
-      },
-      {
-        path: "tree",
-        name: "Tree",
-        component: () => import("@/views/vab/tree/index"),
-        meta: { title: "树", permissions: ["admin"] },
-      },
-      {
-        path: "card",
-        name: "Card",
-        component: () => import("@/views/vab/card/index"),
-        meta: { title: "卡片", permissions: ["admin"] },
-      },
-      {
-        path: "permission",
-        name: "Permission",
-        component: () => import("@/views/vab/permission/index"),
-        meta: {
-          title: "权限控制",
-          permissions: ["admin", "editor"],
-        },
-      },
-      {
-        path: "betterScroll",
-        name: "BetterScroll",
-        component: () => import("@/views/vab/betterScroll/index"),
-        meta: {
-          title: "滚动侦测",
-          permissions: ["admin"],
-        },
-      },
-      {
-        path: "verify",
-        name: "Verify",
-        component: () => import("@/views/vab/verify/index"),
-        meta: { title: "验证码", permissions: ["admin"] },
-      },
-      {
-        path: "menu1",
-        component: () => import("@/views/vab/nested/menu1/index"),
-        name: "Menu1",
-        alwaysShow: true,
-        meta: {
-          title: "嵌套路由 1",
-          permissions: ["admin"],
-        },
-        children: [
-          {
-            path: "menu1-1",
-            name: "Menu1-1",
-            alwaysShow: true,
-            meta: { title: "嵌套路由 1-1" },
-            component: () => import("@/views/vab/nested/menu1/menu1-1/index"),
-
-            children: [
-              {
-                path: "menu1-1-1",
-                name: "Menu1-1-1",
-                meta: { title: "嵌套路由 1-1-1" },
-                component: () =>
-                  import("@/views/vab/nested/menu1/menu1-1/menu1-1-1/index"),
-              },
-            ],
-          },
-        ],
-      },
-      {
-        path: "magnifier",
-        name: "Magnifier",
-        component: () => import("@/views/vab/magnifier/index"),
-        meta: { title: "放大镜", permissions: ["admin"] },
-      },
-      {
-        path: "waterfall",
-        name: "Waterfall",
-        component: () => import("@/views/vab/waterfall/index"),
-        meta: {
-          title: "瀑布屏",
-          noKeepAlive: true,
-          permissions: ["admin"],
-        },
-      },
-      {
-        path: "echarts",
-        name: "Echarts",
-        component: () => import("@/views/vab/echarts/index"),
-        meta: { title: "图表", permissions: ["admin"] },
-      },
-
-      {
-        path: "loading",
-        name: "Loading",
-        component: () => import("@/views/vab/loading/index"),
-        meta: { title: "loading", permissions: ["admin"] },
-      },
-      {
-        path: "player",
-        name: "Player",
-        component: () => import("@/views/vab/player/index"),
-        meta: { title: "视频播放器", permissions: ["admin"] },
-      },
-      {
-        path: "markdownEditor",
-        name: "MarkdownEditor",
-        component: () => import("@/views/vab/markdownEditor/index"),
-        meta: { title: "markdown编辑器", permissions: ["admin"] },
-      },
-      {
-        path: "editor",
-        name: "Editor",
-        component: () => import("@/views/vab/editor/index"),
-        meta: { title: "富文本编辑器", permissions: ["admin"] },
-      },
-      {
-        path: "qrCode",
-        name: "QrCode",
-        component: () => import("@/views/vab/qrCode/index"),
-        meta: { title: "二维码", permissions: ["admin"] },
-      },
-      {
-        path: "backToTop",
-        name: "BackToTop",
-        component: () => import("@/views/vab/backToTop/index"),
-        meta: { title: "返回顶部", permissions: ["admin"] },
-      },
-      {
-        path: "lodash",
-        name: "Lodash",
-        component: () => import("@/views/vab/lodash/index"),
-        meta: { title: "lodash", permissions: ["admin"] },
-      },
-      {
-        path: "imgComparison",
-        name: "ImgComparison",
-        component: () => import("@/views/vab/imgComparison/index"),
-        meta: { title: "图像拖拽比对", permissions: ["admin"] },
-      },
-      {
-        path: "codeGenerator",
-        name: "CodeGenerator",
-        component: () => import("@/views/vab/codeGenerator/index"),
-        meta: { title: "代码生成机", permissions: ["admin"] },
-      },
-      {
-        path: "markdown",
-        name: "Markdown",
-        component: () => import("@/views/vab/markdown/index"),
-        meta: { title: "markdown阅读器", permissions: ["admin"] },
-      },
-      {
-        path: "smallComponents",
-        name: "SmallComponents",
-        component: () => import("@/views/vab/smallComponents/index"),
-        meta: { title: "小组件", permissions: ["admin"] },
-      },
-
-      {
-        path: "upload",
-        name: "Upload",
-        component: () => import("@/views/vab/upload/index"),
-        meta: { title: "上传", permissions: ["admin"] },
-      },
-      {
-        path: "excel",
+        path: "icon",
         component: EmptyLayout,
         redirect: "noRedirect",
-        name: "Excel",
+        name: "Icon",
         meta: {
-          title: "Excel",
+          title: "消费维权",
           permissions: ["admin"],
         },
         children: [
           {
-            path: "exportExcel",
-            component: () => import("@/views/vab/excel/exportExcel"),
-            name: "ExportExcel",
-            meta: { title: "导出Excel" },
+            path: "data1",
+            name: "AwesomeIcon",
+            component: () =>
+              import("@/views/businessApp/consumer-rights/data1"),
+            meta: { title: "12315数据管理" },
           },
           {
-            path: "exportSelectedExcel",
-            component: () => import("@/views/vab/excel/exportSelectExcel"),
-            name: "ExportSelectedExcel",
-            meta: { title: "导出选中行" },
+            path: "data2",
+            name: "DockingCaseManagement",
+            component: () =>
+              import("@/views/businessApp/consumer-rights/data2"),
+            meta: { title: "12345数据管理" },
           },
           {
-            path: "exportMergeHeaderExcel",
-            component: () => import("@/views/vab/excel/exportMergeHeaderExcel"),
-            name: "ExportMergeHeaderExcel",
-            meta: { title: "导出合并" },
+            path: "websit",
+            component: () =>
+              import("@/views/businessApp/consumer-rights/data2"),
+            meta: { title: "合肥市维权站点管理" },
+            disable: true,
           },
           {
-            path: "uploadExcel",
-            component: () => import("@/views/vab/excel/uploadExcel"),
-            name: "UploadExcel",
-            meta: { title: "上传Excel" },
+            path: "processing-flow",
+            component: () =>
+              import("@/views/businessApp/consumer-rights/processing-flow"),
+            meta: { title: "处理流程" },
+          },
+          {
+            path: "statistical-analysis",
+            component: () =>
+              import(
+                "@/views/businessApp/consumer-rights/statistical-analysis"
+              ),
+            meta: { title: "统计分析" },
+            disable: true,
+          },
+          {
+            path: "information-registration",
+            component: () =>
+              import(
+                "@/views/businessApp/consumer-rights/information-registration"
+              ),
+            meta: { title: "信息登记" },
           },
         ],
       },
       {
-        path: "sticky",
-        name: "Sticky",
-        component: () => import("@/views/vab/sticky/index"),
-        meta: { title: "sticky吸附", permissions: ["admin"] },
+        path: "icon",
+        component: EmptyLayout,
+        redirect: "noRedirect",
+        name: "Icon",
+        meta: {
+          title: "亮照亮标",
+        },
+        children: [
+          {
+            path: "Illumination-state",
+            name: "AwesomeIcon",
+            component: () =>
+              import(
+                "@/views/businessApp/bright-light-beacon/Illumination-state"
+              ),
+            meta: { title: "亮照状态" },
+            disable: true,
+          },
+          {
+            path: "lighting-audit",
+            name: "DockingCaseManagement",
+            component: () =>
+              import("@/views/businessApp/bright-light-beacon/lighting-audit"),
+            meta: { title: "亮照审核" },
+            disable: true,
+          },
+          {
+            path: "account",
+            component: () =>
+              import(
+                "@/views/businessApp/case-management/statistical-analysis"
+              ),
+            meta: { title: "账号管理" },
+            disable: true,
+          },
+          {
+            path: "statistical-analysis",
+            component: () =>
+              import(
+                "@/views/businessApp/case-management/statistical-analysis"
+              ),
+            meta: { title: "统计分析" },
+            disable: true,
+          },
+        ],
       },
       {
-        path: "log",
-        name: "Log",
-        component: () => import("@/views/vab/errorLog/index"),
-        meta: { title: "错误日志模拟", permissions: ["admin"] },
+        path: "icon",
+        component: EmptyLayout,
+        redirect: "noRedirect",
+        name: "Icon",
+        meta: {
+          title: "知识产权",
+          permissions: ["admin"],
+        },
+        children: [
+          {
+            path: "synchronous-data-management",
+            component: () =>
+              import(
+                "@/views/businessApp/knowledge/synchronous-data-management"
+              ),
+            meta: { title: "同步数据管理" },
+            disable: true,
+          },
+          {
+            path: "statistical-analysis",
+            component: () =>
+              import(
+                "@/views/businessApp/knowledge/synchronous-data-management"
+              ),
+            meta: { title: "统计分析" },
+            disable: true,
+          },
+        ],
       },
       {
-        path: "news",
-        name: "News",
-        component: () => import("@/views/vab/news/index"),
-        meta: { title: "新闻", permissions: ["admin"] },
+        path: "icon",
+        component: EmptyLayout,
+        redirect: "noRedirect",
+        name: "Icon",
+        meta: {
+          title: "电子合同",
+          permissions: ["admin"],
+        },
+        children: [
+          {
+            path: "automatic-monitoring",
+            component: () =>
+              import(
+                "@/views/businessApp/electronic-contract/automatic-monitoring"
+              ),
+            meta: { title: "自动化监测" },
+            disable: true,
+          },
+          {
+            path: "contract-cases",
+            component: () =>
+              import(
+                "@/views/businessApp/knowledge/synchronous-data-management"
+              ),
+            meta: { title: "合同案件管理" },
+            disable: true,
+          },
+          {
+            path: "statistical-analysis1",
+            component: () =>
+              import(
+                "@/views/businessApp/knowledge/synchronous-data-management"
+              ),
+            meta: { title: "统计分析" },
+            disable: true,
+          },
+        ],
       },
       {
-        path: "more",
-        name: "More",
-        component: () => import("@/views/vab/more/index"),
-        meta: { title: "更多组件", permissions: ["admin"] },
+        path: "icon",
+        component: EmptyLayout,
+        redirect: "noRedirect",
+        name: "Icon",
+        meta: {
+          title: "电子取证",
+          permissions: ["admin"],
+        },
+        children: [
+          {
+            path: "existing-evidence",
+            component: () =>
+              import(
+                "@/views/businessApp/electronic-forensics/existing-evidence"
+              ),
+            meta: { title: "存证管理" },
+            disable: true,
+          },
+          {
+            path: "Issue-of-certificatet",
+            component: () =>
+              import(
+                "@/views/businessApp/electronic-forensics/Issue-of-certificatet"
+              ),
+            meta: { title: "出证管理" },
+            disable: true,
+          },
+          {
+            path: "state",
+            component: () =>
+              import("@/views/businessApp/electronic-forensics/state"),
+            meta: { title: "状态查询" },
+            disable: true,
+          },
+          {
+            path: "statistical-analysis",
+            component: () =>
+              import(
+                "@/views/businessApp/electronic-forensics/statistical-analysis"
+              ),
+            meta: { title: "统计分析" },
+            disable: true,
+          },
+        ],
+      },
+      {
+        path: "icon",
+        component: EmptyLayout,
+        redirect: "noRedirect",
+        name: "Icon",
+        meta: {
+          title: "协调监管",
+          permissions: ["admin"],
+        },
+        children: [
+          {
+            path: "send-for-assistance",
+            component: () =>
+              import(
+                "@/views/businessApp/coordination-of-supervision/send-for-assistance"
+              ),
+            meta: { title: "发送协查" },
+          },
+          {
+            path: "Issue-of-certificatet",
+            component: () =>
+              import(
+                "@/views/businessApp/electronic-forensics/Issue-of-certificatet"
+              ),
+            meta: { title: "协查管理" },
+            disable: true,
+          },
+          {
+            path: "statistical-analysis",
+            component: () =>
+              import(
+                "@/views/businessApp/electronic-forensics/statistical-analysis"
+              ),
+            meta: { title: "统计分析" },
+            disable: true,
+          },
+        ],
+      },
+      {
+        path: "icon",
+        component: EmptyLayout,
+        redirect: "noRedirect",
+        name: "Icon",
+        meta: {
+          title: "网络抽检",
+          permissions: ["admin"],
+        },
+        children: [
+          {
+            path: "commodity",
+            component: () =>
+              import("@/views/businessApp/network-sampling/commodity"),
+            meta: { title: "商品抽检" },
+            disable: true,
+          },
+          {
+            path: "Issue-of-certificatet",
+            component: () =>
+              import("@/views/businessApp/network-sampling/commodity"),
+            meta: { title: "合格商品" },
+            disable: true,
+          },
+          {
+            path: "Issue-of-certificatet",
+            component: () =>
+              import("@/views/businessApp/network-sampling/commodity"),
+            meta: { title: "复检商品" },
+            disable: true,
+          },
+          {
+            path: "Issue-of-certificatet",
+            component: () =>
+              import("@/views/businessApp/network-sampling/commodity"),
+            meta: { title: "不合格商品" },
+            disable: true,
+          },
+          {
+            path: "managemen-of-testing-organization",
+            component: () =>
+              import(
+                "@/views/businessApp/network-sampling/managemen-of-testing-organization"
+              ),
+            meta: { title: "检测机构管理" },
+          },
+          {
+            path: "statistical-analysis",
+            component: () =>
+              import("@/views/businessApp/network-sampling/commodity"),
+            meta: { title: "统计分析" },
+            disable: true,
+          },
+        ],
       },
     ],
   },
@@ -527,95 +634,111 @@ export const asyncRoutes = [
       },
     ],
   },
+
   {
     path: "/error",
-    component: EmptyLayout,
+    component: Layout,
     redirect: "noRedirect",
     name: "Error",
     hidden: true,
     meta: { title: "业务考核", icon: "bug" },
     children: [
       {
-        path: "/401",
-        name: "401",
-        component: () => import("@/views/401"),
-        meta: { title: "401" },
+        path: "business-application-assessment",
+        name: "business-application-assessment",
+        meta: { title: "网络载体考核" },
+        component: () =>
+          import("@/views/businessAssessment/network-carrier-assessment"),
+        disable: true,
       },
       {
-        path: "/404",
-        name: "404",
-        component: () => import("@/views/404"),
-        meta: { title: "404" },
+        path: "business-application-assessment",
+        name: "Business-application-assessment",
+        component: () =>
+          import("@/views/businessAssessment/business-application-assessment"),
+        meta: { title: "业务应用考核" },
+        disable: true,
+      },
+      {
+        path: "business-application-assessment",
+        name: "Business-application-assessment",
+        component: () =>
+          import("@/views/businessAssessment/business-application-assessment"),
+        meta: { title: "农村电商报表" },
+        disable: true,
+      },
+      {
+        path: "business-application-assessment",
+        name: "Business-application-assessment",
+        component: () =>
+          import("@/views/businessAssessment/business-application-assessment"),
+        meta: { title: "系统使用考核" },
+        disable: true,
       },
     ],
   },
   {
-    path: "/personnelManagement",
+    path: "/baseInfo",
     component: Layout,
     redirect: "noRedirect",
-    name: "PersonnelManagement",
+    name: "baseInfo",
     meta: { title: "信用建设", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
         path: "userManagement",
         name: "UserManagement",
-        component: () =>
-          import("@/views/personnelManagement/userManagement/index"),
+        component: () => import("@/views/baseInfo/userManagement/index"),
         meta: { title: "用户管理" },
       },
       {
         path: "roleManagement",
         name: "RoleManagement",
-        component: () =>
-          import("@/views/personnelManagement/roleManagement/index"),
+        component: () => import("@/views/baseInfo/roleManagement/index"),
         meta: { title: "角色管理" },
       },
     ],
   },
   {
-    path: "/personnelManagement",
+    path: "/baseInfo",
     component: Layout,
     redirect: "noRedirect",
-    name: "PersonnelManagement",
+    name: "baseInfo",
     meta: { title: "数据分析", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
         path: "userManagement",
         name: "UserManagement",
-        component: () =>
-          import("@/views/personnelManagement/userManagement/index"),
+        component: () => import("@/views/baseInfo/userManagement/index"),
         meta: { title: "用户管理" },
       },
     ],
   },
   {
-    path: "/personnelManagement",
+    path: "/baseInfo",
     component: Layout,
     redirect: "noRedirect",
-    name: "PersonnelManagement",
+    name: "baseInfo",
     meta: { title: "风险预测", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
         path: "userManagement",
         name: "UserManagement",
-        component: () =>
-          import("@/views/personnelManagement/userManagement/index"),
+        component: () => import("@/views/baseInfo/userManagement/index"),
         meta: { title: "用户管理" },
       },
     ],
   },
   {
-    path: "/personnelManagement",
+    path: "/baseInfo",
     component: Layout,
     redirect: "noRedirect",
-    name: "PersonnelManagement",
+    name: "baseInfo",
     meta: { title: "市场监测", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
         path: "userManagement",
         name: "UserManagement",
-        component: () =>
-          import("@/views/personnelManagement/userManagement/index"),
+        component: () => import("@/views/baseInfo/userManagement/index"),
         meta: { title: "用户管理" },
       },
     ],

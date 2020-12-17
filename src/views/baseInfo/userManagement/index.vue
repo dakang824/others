@@ -2,11 +2,11 @@
   <div class="userManagement-container">
     <vab-query-form>
       <vab-query-form-left-panel :span="12">
-        <el-button icon="el-icon-plus" type="primary" @click="handleEdit"
-          >添加</el-button
-        >
-        <el-button icon="el-icon-delete" type="danger" @click="handleDelete"
-          >批量删除
+        <el-button icon="el-icon-plus" type="primary" @click="handleEdit">
+          添加
+        </el-button>
+        <el-button icon="el-icon-delete" type="danger" @click="handleDelete">
+          批量删除
         </el-button>
       </vab-query-form-left-panel>
       <vab-query-form-right-panel :span="12">
@@ -19,8 +19,8 @@
             />
           </el-form-item>
           <el-form-item>
-            <el-button icon="el-icon-search" type="primary" @click="queryData"
-              >查询
+            <el-button icon="el-icon-search" type="primary" @click="queryData">
+              查询
             </el-button>
           </el-form-item>
         </el-form>
@@ -40,20 +40,18 @@
 
       <el-table-column label="权限">
         <template v-slot="{ row }">
-          <el-tag v-for="(item, index) in row.permissions" :key="index">{{
-            item
-          }}</el-tag>
+          <el-tag v-for="(item, index) in row.permissions" :key="index">
+            {{ item }}
+          </el-tag>
         </template>
       </el-table-column>
 
       <el-table-column prop="datatime" label="修改时间"></el-table-column>
       <el-table-column fixed="right" label="操作" width="200">
         <template v-slot="scope">
-          <el-button type="text" @click="handleEdit(scope.row)"
-            >编辑
-          </el-button>
-          <el-button type="text" @click="handleDelete(scope.row)"
-            >删除
+          <el-button type="text" @click="handleEdit(scope.row)">编辑</el-button>
+          <el-button type="text" @click="handleDelete(scope.row)">
+            删除
           </el-button>
         </template>
       </el-table-column>
@@ -66,8 +64,7 @@
       :total="total"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-    >
-    </el-pagination>
+    ></el-pagination>
     <edit ref="edit" @fetchData="fetchData"></edit>
   </div>
 </template>

@@ -2,7 +2,7 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 00:03:18
- * @LastEditTime: 2020-12-17 12:17:15
+ * @LastEditTime: 2020-12-17 15:26:09
 -->
 <template>
   <div>
@@ -13,7 +13,7 @@
     >
       <el-menu-item
         v-for="(route, index) in secondSide.children"
-        :key="index"
+        :key="route.meta.title"
         :index="index"
       >
         {{ route.meta.title }}
