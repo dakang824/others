@@ -7,7 +7,7 @@ export default {
   name: "App",
   mounted() {
     this.$nextTick(() => {
-      var due_date = new Date("2020-12-17");
+      var due_date = new Date("2020-12-18");
       var days_deadline = 0;
       /* stop changing here */
 

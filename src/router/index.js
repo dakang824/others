@@ -1163,6 +1163,7 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/key-word-bank/yellow-and-poison"
               ),
             meta: { title: "涉黄涉毒" },
+            disable: true,
           },
           {
             path: "suspected-of-counterfeiting",
@@ -1171,6 +1172,7 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/key-word-bank/suspected-of-counterfeiting"
               ),
             meta: { title: "涉嫌假冒" },
+            disable: true,
           },
           {
             path: "yangtze-river-ban",
@@ -1179,12 +1181,14 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/key-word-bank/yangtze-river-ban"
               ),
             meta: { title: "长江禁售" },
+            disable: true,
           },
           {
             path: "internet-ban",
             component: () =>
               import("@/views/market-monitoring/key-word-bank/internet-ban"),
             meta: { title: "互联网禁售" },
+            disable: true,
           },
           {
             path: "absolute-language",
@@ -1193,6 +1197,7 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/key-word-bank/absolute-language"
               ),
             meta: { title: "绝对化用语" },
+            disable: true,
           },
           {
             path: "false-propaganda",
@@ -1201,6 +1206,7 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/key-word-bank/false-propaganda"
               ),
             meta: { title: "虚假宣传" },
+            disable: true,
           },
           {
             path: "contract-thesaurus",
@@ -1209,6 +1215,7 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/key-word-bank/contract-thesaurus"
               ),
             meta: { title: "合同词库" },
+            disable: true,
           },
           {
             path: "personal-thesaurus",
@@ -1217,6 +1224,7 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/key-word-bank/personal-thesaurus"
               ),
             meta: { title: "个人词库" },
+            disable: true,
           },
           {
             path: "common-thesaurus",
@@ -1225,6 +1233,7 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/key-word-bank/common-thesaurus"
               ),
             meta: { title: "公用词库" },
+            disable: true,
           },
         ],
       },
@@ -1277,12 +1286,14 @@ export const asyncRoutes = [
             component: () =>
               import("@/views/market-monitoring/special-search/product-search"),
             meta: { title: "商品搜索" },
+            disable: true,
           },
           {
             path: "content-search",
             component: () =>
               import("@/views/market-monitoring/special-search/content-search"),
             meta: { title: "内容搜索" },
+            disable: true,
           },
           {
             path: "trademark-search",
