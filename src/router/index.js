@@ -578,7 +578,7 @@ export const asyncRoutes = [
         redirect: "noRedirect",
         name: "Icon",
         meta: {
-          title: "网络抽检",
+          title: "网络监测",
           permissions: ["admin"],
         },
         children: [
@@ -616,7 +616,7 @@ export const asyncRoutes = [
               import(
                 "@/views/businessApp/network-sampling/managemen-of-testing-organization"
               ),
-            meta: { title: "检测机构管理" },
+            meta: { title: "监测机构管理" },
           },
           {
             path: "statistical-analysis",
@@ -635,7 +635,7 @@ export const asyncRoutes = [
     redirect: "noRedirect",
     name: "Mall",
     meta: {
-      title: "统计分析1",
+      title: "统计分析",
       icon: "shopping-cart",
       permissions: ["admin"],
     },
@@ -648,10 +648,18 @@ export const asyncRoutes = [
         meta: { title: "分析统计" },
         children: [
           {
-            path: "register",
-            name: "Register",
-            component: () => import("@/views/baseInfo/marketInfo/register"),
+            path: "network-carrier-analysis",
+            component: () =>
+              import("@/views/analysis/analysis/network-carrier-analysis"),
             meta: { title: "网络载体分析" },
+            children: [
+              {
+                path: "administration",
+                component: () => import("@/views/businessApp/administration"),
+                meta: { title: "一般行政指导" },
+                disable: true,
+              },
+            ],
           },
           {
             path: "remixIcon",
@@ -661,22 +669,45 @@ export const asyncRoutes = [
             disable: true,
           },
           {
-            path: "restaurant",
-            name: "Restaurant",
-            component: () => import("@/views/baseInfo/marketInfo/restaurant"),
+            path: "network-related-enterprises",
+            component: () =>
+              import("@/views/analysis/analysis/network-related-enterprises"),
             meta: { title: "企业注册信息分析" },
+            disable: true,
           },
           {
-            path: "restaurant",
-            name: "Restaurant",
-            component: () => import("@/views/baseInfo/marketInfo/restaurant"),
+            path: "annual-reports",
+            component: () => import("@/views/analysis/analysis/annual-reports"),
             meta: { title: "企业年报信息分析" },
+            disable: true,
           },
           {
-            path: "restaurant",
-            name: "Restaurant",
-            component: () => import("@/views/baseInfo/marketInfo/restaurant"),
+            path: "enterprise-registration",
+            component: () =>
+              import("@/views/analysis/analysis/enterprise-registration"),
             meta: { title: "企业注册资本分析" },
+            disable: true,
+          },
+        ],
+      },
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: EmptyLayout,
+        meta: { title: "统计报表" },
+        children: [
+          {
+            path: "register",
+            name: "Register",
+            component: () => import("@/views/analysis/report/custom-report"),
+            meta: { title: "自定义报表" },
+          },
+          {
+            path: "remixIcon",
+            name: "RemixIcon",
+            component: () => import("@/views/analysis/report/custom-report"),
+            meta: { title: "可视化报表" },
+            disable: true,
           },
         ],
       },
@@ -695,33 +726,58 @@ export const asyncRoutes = [
         path: "network-carrier-assessment",
         name: "business-application-assessment",
         meta: { title: "网络载体考核" },
-        component: () =>
-          import("@/views/businessAssessment/network-carrier-assessment"),
-        disable: true,
+        component: EmptyLayout,
+        children: [
+          {
+            path: "register",
+            name: "Register",
+            component: () =>
+              import("@/views/businessAssessment/network-carrier-assessment"),
+            meta: { title: "网络载体考核" },
+          },
+        ],
       },
       {
         path: "business-application-assessment",
         name: "Business-application-assessment",
-        component: () =>
-          import("@/views/businessAssessment/business-application-assessment"),
+        component: EmptyLayout,
         meta: { title: "业务应用考核" },
-        disable: true,
+        children: [
+          {
+            path: "register",
+            name: "Register",
+            component: () =>
+              import(
+                "@/views/businessAssessment/business-application-assessment"
+              ),
+            meta: { title: "业务应用考核" },
+          },
+        ],
       },
       {
-        path: "report-of-rural-e-commerce",
-        name: "Business-application-assessment",
-        component: () =>
-          import("@/views/businessAssessment/business-application-assessment"),
+        path: "countryside",
+        component: EmptyLayout,
         meta: { title: "农村电商报表" },
-        disable: true,
+        children: [
+          {
+            path: "countryside",
+            component: () => import("@/views/analysis/report/countryside"),
+            meta: { title: "农村电商报表" },
+          },
+        ],
       },
       {
-        path: "system-usage-assessment",
-        name: "Business-application-assessment",
-        component: () =>
-          import("@/views/businessAssessment/business-application-assessment"),
-        meta: { title: "系统使用考核" },
-        disable: true,
+        path: "system-application",
+        component: EmptyLayout,
+        meta: { title: "系统应用考核" },
+        children: [
+          {
+            path: "system-application",
+            component: () =>
+              import("@/views/analysis/report/system-application"),
+            meta: { title: "系统使用考核" },
+          },
+        ],
       },
     ],
   },
@@ -733,36 +789,235 @@ export const asyncRoutes = [
     meta: { title: "信用建设", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
-        path: "userManagement",
-        name: "UserManagement",
-        component: () => import("@/views/baseInfo/userManagement/index"),
-        meta: { title: "用户管理" },
+        path: "credit",
+        component: EmptyLayout,
+        meta: { title: "信用评价" },
+        children: [
+          {
+            path: "register",
+            name: "Register",
+            component: () => import("@/views/credit-construction/credit"),
+            meta: { title: "信用评价" },
+          },
+        ],
       },
       {
-        path: "roleManagement",
-        name: "RoleManagement",
-        component: () => import("@/views/baseInfo/roleManagement/index"),
-        meta: { title: "角色管理" },
+        path: "clist-of-anomalies",
+        component: EmptyLayout,
+        meta: { title: "异常名录" },
+        children: [
+          {
+            path: "list-of-anomalies",
+            name: "list-of-anomalies",
+            component: () =>
+              import("@/views/credit-construction/list-of-anomalies"),
+            meta: { title: "异常名录" },
+          },
+        ],
+      },
+      {
+        path: "dishonest-enterprise",
+        component: EmptyLayout,
+        meta: { title: "失信企业" },
+        children: [
+          {
+            path: "dishonest-enterprise",
+            component: () =>
+              import("@/views/credit-construction/dishonest-enterprise"),
+            meta: { title: "失信企业" },
+          },
+        ],
+      },
+      {
+        path: "administrative-sanction",
+        component: EmptyLayout,
+        meta: { title: "行政处罚" },
+        children: [
+          {
+            path: "administrative-sanction",
+            component: () =>
+              import("@/views/credit-construction/administrative-sanction"),
+            meta: { title: "行政处罚" },
+          },
+        ],
+      },
+      {
+        path: "administrative-licensing",
+        component: EmptyLayout,
+        meta: { title: "行政许可" },
+        children: [
+          {
+            path: "administrative-licensing",
+            component: () =>
+              import("@/views/credit-construction/administrative-licensing"),
+            meta: { title: "行政许可" },
+          },
+        ],
+      },
+      {
+        path: "scoring-index",
+        component: EmptyLayout,
+        meta: { title: "评分指标" },
+        children: [
+          {
+            path: "scoring-index",
+            component: () =>
+              import("@/views/credit-construction/scoring-index"),
+            meta: { title: "评分指标" },
+          },
+        ],
       },
     ],
   },
   {
-    path: "/baseInfo",
+    path: "/data-analysis",
     component: Layout,
     redirect: "noRedirect",
     name: "baseInfo",
     meta: { title: "数据分析", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
-        path: "userManagement",
-        name: "UserManagement",
-        component: () => import("@/views/baseInfo/userManagement/index"),
-        meta: { title: "用户管理" },
+        path: "commodity-analysis",
+        component: EmptyLayout,
+        meta: { title: "商品分析" },
+        children: [
+          {
+            path: "scoring-index",
+            component: () =>
+              import(
+                "@/views/data-analysis/commodity-analysis/product-reviews"
+              ),
+            meta: { title: "商品评论分析" },
+          },
+          {
+            path: "product-price",
+            component: () =>
+              import("@/views/data-analysis/commodity-analysis/product-price"),
+            meta: { title: "商品价格分析" },
+          },
+        ],
+      },
+      {
+        path: "commodity-analysis",
+        component: EmptyLayout,
+        meta: { title: "网络载体分析" },
+        children: [
+          {
+            path: "yellow-and-drug-related",
+            component: () =>
+              import(
+                "@/views/data-analysis/network-carrier/yellow-and-drug-related"
+              ),
+            meta: { title: "涉黄和涉毒分析" },
+          },
+          {
+            path: "false-propaganda",
+            component: () =>
+              import("@/views/data-analysis/network-carrier/false-propaganda"),
+            meta: { title: "虚假宣传分析" },
+          },
+        ],
+      },
+      {
+        path: "picture-and-text",
+        component: EmptyLayout,
+        meta: { title: "图片与文本分析" },
+        children: [
+          {
+            path: "web-content-analysis",
+            component: () =>
+              import(
+                "@/views/data-analysis/picture-and-text/web-content-analysis"
+              ),
+            meta: { title: "网页内容分析" },
+          },
+          {
+            path: "Intelligent-extraction",
+            component: () =>
+              import(
+                "@/views/data-analysis/picture-and-text/Intelligent-extraction"
+              ),
+            meta: { title: "图片文字智能提取" },
+          },
+        ],
+      },
+      {
+        path: "catering-theme",
+        component: EmptyLayout,
+        meta: { title: "餐饮主题分析" },
+        children: [
+          {
+            path: "catering-theme",
+            component: () =>
+              import("@/views/data-analysis/picture-and-text/catering-theme"),
+            meta: { title: "餐饮主题分析" },
+          },
+        ],
+      },
+      {
+        path: "annual-report-information",
+        component: EmptyLayout,
+        meta: { title: "年报信息分析" },
+        children: [
+          {
+            path: "annual-report-information",
+            component: () =>
+              import(
+                "@/views/data-analysis/picture-and-text/annual-report-information"
+              ),
+            meta: { title: "年报信息分析" },
+          },
+        ],
+      },
+      {
+        path: "corporate-portrait",
+        component: EmptyLayout,
+        meta: { title: "企业画像分析" },
+        children: [
+          {
+            path: "corporate-portrait",
+            component: () => import("@/views/data-analysis/corporate-portrait"),
+            meta: { title: "企业画像分析" },
+            disable: true,
+          },
+          {
+            path: "website-carrier-portrait",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/website-carrier-portrait"
+              ),
+            meta: { title: "网站载体画像分析" },
+          },
+          {
+            path: "online-product-image",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/online-product-image"
+              ),
+            meta: { title: "网络商品图像分析" },
+          },
+        ],
+      },
+      {
+        path: "e-commerce-research",
+        component: EmptyLayout,
+        meta: { title: "电商调研分析" },
+        disable: true,
+        children: [
+          {
+            path: "e-commerce-research",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+              ),
+            meta: { title: "电商调研分析" },
+          },
+        ],
       },
     ],
   },
   {
-    path: "/baseInfo",
+    path: "/risk-prediction",
     component: Layout,
     redirect: "noRedirect",
     name: "baseInfo",
@@ -771,8 +1026,84 @@ export const asyncRoutes = [
       {
         path: "userManagement",
         name: "UserManagement",
-        component: () => import("@/views/baseInfo/userManagement/index"),
-        meta: { title: "用户管理" },
+        component: EmptyLayout,
+        meta: { title: "风险预警" },
+        children: [
+          {
+            path: "e-commerce-research",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+              ),
+            meta: { title: "风险预警" },
+          },
+        ],
+      },
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: EmptyLayout,
+        meta: { title: "风险分析" },
+        children: [
+          {
+            path: "e-commerce-research",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+              ),
+            meta: { title: "风险分析" },
+          },
+        ],
+      },
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: EmptyLayout,
+        meta: { title: "网络载体" },
+        disable: true,
+        children: [
+          {
+            path: "e-commerce-research",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+              ),
+            meta: { title: "网络载体" },
+          },
+        ],
+      },
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: EmptyLayout,
+        meta: { title: "餐饮平台" },
+        disable: true,
+        children: [
+          {
+            path: "e-commerce-research",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+              ),
+            meta: { title: "餐饮平台" },
+          },
+        ],
+      },
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: EmptyLayout,
+        meta: { title: "重点监控" },
+        children: [
+          {
+            path: "e-commerce-research",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+              ),
+            meta: { title: "重点监控" },
+          },
+        ],
       },
     ],
   },

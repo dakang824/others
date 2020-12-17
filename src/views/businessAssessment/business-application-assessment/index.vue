@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 15:51:17
+ * @LastEditTime: 2020-12-17 21:26:49
 -->
 <template>
-  <div>业务应用考核</div>
+  <div><img src="@/assets/image/data34_03.png" width="100%" /></div>
 </template>
 
 <script>
