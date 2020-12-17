@@ -1024,33 +1024,26 @@ export const asyncRoutes = [
     meta: { title: "风险预测", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
-        path: "userManagement",
-        name: "UserManagement",
+        path: "risk-prediction",
+        name: "risk-prediction",
         component: EmptyLayout,
         meta: { title: "风险预警" },
         children: [
           {
-            path: "e-commerce-research",
-            component: () =>
-              import(
-                "@/views/data-analysis/corporate-portrait/e-commerce-research"
-              ),
+            path: "risk-warning",
+            component: () => import("@/views/risk-prediction/risk-warning"),
             meta: { title: "风险预警" },
           },
         ],
       },
       {
-        path: "userManagement",
-        name: "UserManagement",
+        path: "risk-analysis",
         component: EmptyLayout,
         meta: { title: "风险分析" },
         children: [
           {
-            path: "e-commerce-research",
-            component: () =>
-              import(
-                "@/views/data-analysis/corporate-portrait/e-commerce-research"
-              ),
+            path: "risk-analysis",
+            component: () => import("@/views/risk-prediction/risk-analysis"),
             meta: { title: "风险分析" },
           },
         ],
@@ -1090,17 +1083,13 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "userManagement",
-        name: "UserManagement",
+        path: "key-monitoring",
         component: EmptyLayout,
         meta: { title: "重点监控" },
         children: [
           {
-            path: "e-commerce-research",
-            component: () =>
-              import(
-                "@/views/data-analysis/corporate-portrait/e-commerce-research"
-              ),
+            path: "key-monitoring",
+            component: () => import("@/views/risk-prediction/key-monitoring"),
             meta: { title: "重点监控" },
           },
         ],
@@ -1108,17 +1097,218 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: "/baseInfo",
+    path: "/market-monitoring",
     component: Layout,
     redirect: "noRedirect",
     name: "baseInfo",
     meta: { title: "市场监测", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
-        path: "userManagement",
-        name: "UserManagement",
-        component: () => import("@/views/baseInfo/userManagement/index"),
-        meta: { title: "用户管理" },
+        path: "network-monitoring",
+        name: "risk-prediction",
+        component: EmptyLayout,
+        meta: { title: "网络监测" },
+        children: [
+          {
+            path: "network-monitoring",
+            component: () =>
+              import("@/views/market-monitoring/network-monitoring"),
+            meta: { title: "网络监测" },
+          },
+          {
+            path: "directional-monitoring",
+            component: () =>
+              import(
+                "@/views/market-monitoring/network-monitoring/directional-monitoring"
+              ),
+            meta: { title: "定向监测" },
+          },
+          {
+            path: "special-action",
+            component: () =>
+              import(
+                "@/views/market-monitoring/network-monitoring/special-action"
+              ),
+            meta: { title: "专项行动" },
+          },
+        ],
+      },
+      {
+        path: "network-check",
+        component: EmptyLayout,
+        meta: { title: "网络检查" },
+        disable: true,
+        children: [
+          {
+            path: "network-check",
+            component: () => import("@/views/market-monitoring/network-check"),
+            meta: { title: "网络检查" },
+          },
+        ],
+      },
+      {
+        path: "key-word-bank",
+        component: EmptyLayout,
+        meta: { title: "关键词库" },
+        children: [
+          {
+            path: "key-word-bank",
+            component: () => import("@/views/market-monitoring/key-word-bank"),
+            meta: { title: "关键词库" },
+          },
+          {
+            path: "yellow-and-poison",
+            component: () =>
+              import(
+                "@/views/market-monitoring/key-word-bank/yellow-and-poison"
+              ),
+            meta: { title: "涉黄涉毒" },
+          },
+          {
+            path: "suspected-of-counterfeiting",
+            component: () =>
+              import(
+                "@/views/market-monitoring/key-word-bank/suspected-of-counterfeiting"
+              ),
+            meta: { title: "涉嫌假冒" },
+          },
+          {
+            path: "yangtze-river-ban",
+            component: () =>
+              import(
+                "@/views/market-monitoring/key-word-bank/yangtze-river-ban"
+              ),
+            meta: { title: "长江禁售" },
+          },
+          {
+            path: "internet-ban",
+            component: () =>
+              import("@/views/market-monitoring/key-word-bank/internet-ban"),
+            meta: { title: "互联网禁售" },
+          },
+          {
+            path: "absolute-language",
+            component: () =>
+              import(
+                "@/views/market-monitoring/key-word-bank/absolute-language"
+              ),
+            meta: { title: "绝对化用语" },
+          },
+          {
+            path: "false-propaganda",
+            component: () =>
+              import(
+                "@/views/market-monitoring/key-word-bank/false-propaganda"
+              ),
+            meta: { title: "虚假宣传" },
+          },
+          {
+            path: "contract-thesaurus",
+            component: () =>
+              import(
+                "@/views/market-monitoring/key-word-bank/contract-thesaurus"
+              ),
+            meta: { title: "合同词库" },
+          },
+          {
+            path: "personal-thesaurus",
+            component: () =>
+              import(
+                "@/views/market-monitoring/key-word-bank/personal-thesaurus"
+              ),
+            meta: { title: "个人词库" },
+          },
+          {
+            path: "common-thesaurus",
+            component: () =>
+              import(
+                "@/views/market-monitoring/key-word-bank/common-thesaurus"
+              ),
+            meta: { title: "公用词库" },
+          },
+        ],
+      },
+      {
+        path: "market-public-opinion",
+        component: EmptyLayout,
+        meta: { title: "市场舆情" },
+        children: [
+          {
+            path: "real-time-public-opinion",
+            component: () =>
+              import(
+                "@/views/market-monitoring/market-public-opinion/real-time-public-opinion"
+              ),
+            meta: { title: "实时舆情" },
+          },
+          {
+            path: "theme-customization",
+            component: () =>
+              import(
+                "@/views/market-monitoring/market-public-opinion/theme-customization"
+              ),
+            meta: { title: "主题定制" },
+          },
+          {
+            path: "event-analysis",
+            component: () =>
+              import(
+                "@/views/market-monitoring/market-public-opinion/event-analysis"
+              ),
+            meta: { title: "事件分析" },
+          },
+          {
+            path: "public-opinion-report",
+            component: () =>
+              import(
+                "@/views/market-monitoring/market-public-opinion/public-opinion-report"
+              ),
+            meta: { title: "舆情报表" },
+          },
+        ],
+      },
+      {
+        path: "special-search",
+        component: EmptyLayout,
+        meta: { title: "专项搜索" },
+        children: [
+          {
+            path: "product-search",
+            component: () =>
+              import("@/views/market-monitoring/special-search/product-search"),
+            meta: { title: "商品搜索" },
+          },
+          {
+            path: "content-search",
+            component: () =>
+              import("@/views/market-monitoring/special-search/content-search"),
+            meta: { title: "内容搜索" },
+          },
+          {
+            path: "trademark-search",
+            component: () =>
+              import(
+                "@/views/market-monitoring/special-search/trademark-search"
+              ),
+            meta: { title: "商标搜索" },
+          },
+          {
+            path: "product-image-search",
+            component: () =>
+              import(
+                "@/views/market-monitoring/special-search/product-image-search"
+              ),
+            meta: { title: "商品图片搜索" },
+          },
+          {
+            path: "one-click-search",
+            component: () =>
+              import(
+                "@/views/market-monitoring/special-search/one-click-search"
+              ),
+            meta: { title: "网监一键搜" },
+          },
+        ],
       },
     ],
   },
