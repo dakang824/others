@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 15:44:25
+ * @LastEditTime: 2020-12-17 17:37:38
 -->
 <template>
-  <div>商品抽检</div>
+  <div><img src="@/assets/image/data6_03.png" width="100%" /></div>
 </template>
 
 <script>

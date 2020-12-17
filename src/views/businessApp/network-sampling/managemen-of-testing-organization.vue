@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 15:43:02
+ * @LastEditTime: 2020-12-17 17:38:12
 -->
 <template>
-  <div>检测机构管理</div>
+  <div><img src="@/assets/image/data6_03.png" width="100%" /></div>
 </template>
 
 <script>

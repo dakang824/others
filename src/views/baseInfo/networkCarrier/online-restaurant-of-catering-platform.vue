@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 14:33:00
+ * @LastEditTime: 2020-12-17 19:00:27
 -->
 <template>
-  <div>餐饮平台网店库</div>
+  <div><img src="@/assets/image/data13_03.png" width="100%" /></div>
 </template>
 
 <script>

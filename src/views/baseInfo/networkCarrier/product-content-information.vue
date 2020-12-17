@@ -2,15 +2,14 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 17:34:46
+ * @LastEditTime: 2020-12-17 19:16:16
 -->
 <template>
-  <div><img src="@/assets/image/data5_03.png" width="100%" /></div>
+  <div><img src="@/assets/image/data19_03.png" width="100%" /></div>
 </template>
 
 <script>
 export default {
-  name: "Websit",
   components: {},
   data() {
     return {};

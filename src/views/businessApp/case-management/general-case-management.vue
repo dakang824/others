@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 14:57:22
+ * @LastEditTime: 2020-12-17 17:28:31
 -->
 <template>
-  <div>一般案件管理</div>
+  <div><img src="@/assets/image/data3.png" width="100%" /></div>
 </template>
 
 <script>

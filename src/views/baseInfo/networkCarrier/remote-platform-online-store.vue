@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 14:26:56
+ * @LastEditTime: 2020-12-17 18:57:10
 -->
 <template>
-  <div>异地平台网店库</div>
+  <div><img src="@/assets/image/data12_03.png" width="100%" /></div>
 </template>
 
 <script>

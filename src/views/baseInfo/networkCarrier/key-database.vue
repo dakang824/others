@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 14:27:58
+ * @LastEditTime: 2020-12-17 19:06:21
 -->
 <template>
-  <div>重点库</div>
+  <div><img src="@/assets/image/data16_03.png" width="100%" /></div>
 </template>
 
 <script>

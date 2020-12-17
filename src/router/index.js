@@ -174,21 +174,57 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "userManagement",
-        name: "UserManagement",
-        component: () => import("@/views/baseInfo/userManagement/index"),
+        path: "online-store",
+        name: "OnlineStore",
+        component: EmptyLayout,
         meta: { title: "网络商品库" },
+        children: [
+          {
+            path: "local-platform-online-store",
+            component: () =>
+              import(
+                "@/views/baseInfo/networkCarrier/local-platform-online-store"
+              ),
+            meta: { title: "本地平台商品库" },
+            disable: true,
+          },
+          {
+            path: "store",
+            component: () =>
+              import(
+                "@/views/baseInfo/networkCarrier/local-platform-online-store"
+              ),
+            meta: { title: "异地平台商品库" },
+            disable: true,
+          },
+          {
+            path: "product-content-information",
+            component: () =>
+              import(
+                "@/views/baseInfo/networkCarrier/product-content-information"
+              ),
+            meta: { title: "商品内容信息管理" },
+          },
+        ],
       },
       {
         path: "roleManagement",
         name: "RoleManagement",
-        component: () => import("@/views/baseInfo/roleManagement/index"),
+        component: EmptyLayout,
         meta: { title: "商品评价信息管理" },
+        children: [
+          {
+            path: "commodity-evaluation",
+            component: () =>
+              import("@/views/baseInfo/networkCarrier/commodity-evaluation"),
+            meta: { title: "商品评价信息管理" },
+          },
+        ],
       },
     ],
   },
   {
-    path: "/vab",
+    path: "/businessApp",
     component: Layout,
     redirect: "noRedirect",
     name: "Vab",
@@ -196,7 +232,7 @@ export const asyncRoutes = [
     meta: { title: "业务应用", icon: "cloud" },
     children: [
       {
-        path: "table",
+        path: "administration",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Table",
@@ -224,7 +260,6 @@ export const asyncRoutes = [
             name: "ComprehensiveTable",
             component: () => import("@/views/businessApp/administration"),
             meta: { title: "企业培训管理" },
-            disable: true,
           },
           {
             path: "legal-provisions",
@@ -243,7 +278,7 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "icon",
+        path: "case",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Icon",
@@ -282,7 +317,7 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "icon",
+        path: "consumer-rights",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Icon",
@@ -338,7 +373,7 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "icon",
+        path: "illumination",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Icon",
@@ -385,7 +420,7 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "icon",
+        path: "knowledge",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Icon",
@@ -415,7 +450,7 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "icon",
+        path: "electronic",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Icon",
@@ -454,7 +489,7 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "icon",
+        path: "forensics",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Icon",
@@ -500,7 +535,7 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "icon",
+        path: "supervision",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Icon",
@@ -538,7 +573,7 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "icon",
+        path: "network",
         component: EmptyLayout,
         redirect: "noRedirect",
         name: "Icon",
@@ -595,42 +630,55 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: "/mall",
+    path: "/analysis",
     component: Layout,
     redirect: "noRedirect",
     name: "Mall",
     meta: {
-      title: "统计分析",
+      title: "统计分析1",
       icon: "shopping-cart",
       permissions: ["admin"],
     },
 
     children: [
       {
-        path: "pay",
-        name: "Pay",
-        component: () => import("@/views/mall/pay/index"),
-        meta: {
-          title: "支付",
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-      {
-        path: "goodsList",
-        name: "GoodsList",
-        component: () => import("@/views/mall/goodsList/index"),
-        meta: {
-          title: "商品列表",
-        },
-      },
-      {
-        path: "goodsDetail",
-        name: "GoodsDetail",
-        component: () => import("@/views/mall/goodsDetail/index"),
-        meta: {
-          title: "商品详情",
-        },
+        path: "userManagement",
+        name: "UserManagement",
+        component: EmptyLayout,
+        meta: { title: "分析统计" },
+        children: [
+          {
+            path: "register",
+            name: "Register",
+            component: () => import("@/views/baseInfo/marketInfo/register"),
+            meta: { title: "网络载体分析" },
+          },
+          {
+            path: "remixIcon",
+            name: "RemixIcon",
+            component: () => import("@/views/vab/icon/remixIcon"),
+            meta: { title: "涉网企业信息分析" },
+            disable: true,
+          },
+          {
+            path: "restaurant",
+            name: "Restaurant",
+            component: () => import("@/views/baseInfo/marketInfo/restaurant"),
+            meta: { title: "企业注册信息分析" },
+          },
+          {
+            path: "restaurant",
+            name: "Restaurant",
+            component: () => import("@/views/baseInfo/marketInfo/restaurant"),
+            meta: { title: "企业年报信息分析" },
+          },
+          {
+            path: "restaurant",
+            name: "Restaurant",
+            component: () => import("@/views/baseInfo/marketInfo/restaurant"),
+            meta: { title: "企业注册资本分析" },
+          },
+        ],
       },
     ],
   },
@@ -644,7 +692,7 @@ export const asyncRoutes = [
     meta: { title: "业务考核", icon: "bug" },
     children: [
       {
-        path: "business-application-assessment",
+        path: "network-carrier-assessment",
         name: "business-application-assessment",
         meta: { title: "网络载体考核" },
         component: () =>
@@ -660,7 +708,7 @@ export const asyncRoutes = [
         disable: true,
       },
       {
-        path: "business-application-assessment",
+        path: "report-of-rural-e-commerce",
         name: "Business-application-assessment",
         component: () =>
           import("@/views/businessAssessment/business-application-assessment"),
@@ -668,7 +716,7 @@ export const asyncRoutes = [
         disable: true,
       },
       {
-        path: "business-application-assessment",
+        path: "system-usage-assessment",
         name: "Business-application-assessment",
         component: () =>
           import("@/views/businessAssessment/business-application-assessment"),

@@ -1,5 +1,11 @@
+<!--
+ * @Author: yukang 1172248038@qq.com
+ * @Description: 
+ * @Date: 2020-12-17 13:36:52
+ * @LastEditTime: 2020-12-17 18:39:18
+-->
 <template>
-  <div>注册信息库</div>
+  <div><img src="@/assets/image/data9_03.png" width="100%" /></div>
 </template>
 
 <script>

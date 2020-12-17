@@ -2,7 +2,7 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 00:03:18
- * @LastEditTime: 2020-12-17 15:26:09
+ * @LastEditTime: 2020-12-17 16:06:01
 -->
 <template>
   <div>
@@ -15,6 +15,7 @@
         v-for="(route, index) in secondSide.children"
         :key="route.meta.title"
         :index="index"
+        :class="route.disable ? 'disabled' : ''"
       >
         {{ route.meta.title }}
       </el-menu-item>
@@ -60,6 +61,7 @@ export default {
         this.$router.push(arr[0].path);
       } else {
         this.$store.dispatch("permission/setPartialRoutes", arr);
+        console.log(this.getPath(secondSide.path, secondSide.children[e]));
         this.$router.push(
           this.getPath(secondSide.path, secondSide.children[e])
         );
@@ -80,4 +82,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+::v-deep {
+  .el-menu {
+    li.disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+}
+</style>
