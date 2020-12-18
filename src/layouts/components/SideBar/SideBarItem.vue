@@ -10,8 +10,12 @@
       <app-link
         v-if="onlyOneChildren.meta"
         :target="onlyOneChildren.meta.target ? onlyOneChildren.meta.target : ''"
-        :to="onlyOneChildren.disable ? '' : onlyOneChildren.path"
-        :class="onlyOneChildren.disable ? 'disable' : ''"
+        :to="onlyOneChildren.path"
+        :class="
+          !onlyOneChildren.noCheck && onlyOneChildren.disable ? 'disable' : ''
+        "
+        :disabled="!onlyOneChildren.noCheck && onlyOneChildren.disable"
+        @click="handleJump(onlyOneChildren.path)"
       >
         <el-menu-item
           :class="{ 'submenu-title-noDropdown': !isNest }"
@@ -91,6 +95,9 @@ export default {
     return {};
   },
   methods: {
+    handleJump(e) {
+      console.log(e);
+    },
     handleChildren(children = [], parent) {
       if (children === null) children = [];
       const showChildren = children.filter((item) => {

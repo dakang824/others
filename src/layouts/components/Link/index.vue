@@ -1,3 +1,9 @@
+<!--
+ * @Author: yukang 1172248038@qq.com
+ * @Description: 
+ * @Date: 2020-12-16 20:34:11
+ * @LastEditTime: 2020-12-18 22:10:42
+-->
 <template>
   <a v-bind="linkProps(to, target)">
     <slot />
@@ -18,9 +24,16 @@ export default {
       type: String,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
   },
   methods: {
     linkProps(url, target) {
+      if (this.disabled) {
+        return;
+      }
       if (isExternal(url)) {
         return {
           is: "a",

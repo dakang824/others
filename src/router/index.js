@@ -642,7 +642,7 @@ export const asyncRoutes = [
     redirect: "noRedirect",
     name: "Mall",
     meta: {
-      title: "统计分析",
+      title: "统计报表",
       icon: "shopping-cart",
       permissions: ["admin"],
     },
@@ -652,7 +652,7 @@ export const asyncRoutes = [
         path: "userManagement",
         name: "UserManagement",
         component: EmptyLayout,
-        meta: { title: "统计报表" },
+        meta: { title: "报表统计" },
         children: [
           {
             path: "register",
@@ -670,34 +670,35 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "userManagement",
-        name: "UserManagement",
+        path: "user",
         component: EmptyLayout,
         meta: { title: "分析统计" },
         children: [
           {
-            path: "network-carrier-analysis",
-            component: () =>
-              import("@/views/analysis/analysis/network-carrier-analysis"),
+            path: "network",
+            component: () => import("@/views/analysis/report"),
             meta: { title: "网络载体分析" },
             children: [
               {
                 path: "administration",
-                component: () => import("@/views/businessApp/administration"),
+                component: () => import("@/views/analysis/report/test1"),
                 meta: { title: "餐饮平台分析" },
                 disable: true,
+                noCheck: true,
               },
               {
                 path: "store",
-                component: () => import("@/views/businessApp/administration"),
+                component: () => import("@/views/analysis/report/test2"),
                 meta: { title: "网店分析" },
                 disable: true,
+                noCheck: true,
               },
               {
                 path: "website",
-                component: () => import("@/views/businessApp/administration"),
+                component: () => import("@/views/analysis/report/test3"),
                 meta: { title: "网站分析" },
                 disable: true,
+                noCheck: true,
               },
             ],
           },

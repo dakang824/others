@@ -2,7 +2,7 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 00:03:18
- * @LastEditTime: 2020-12-18 13:58:27
+ * @LastEditTime: 2020-12-18 22:56:15
 -->
 <template>
   <div>
@@ -54,13 +54,20 @@ export default {
       let arr = [];
 
       if ("children" in secondSide.children[e]) {
-        console.log(data.children[e].children);
         arr = data.children[e].children.map((item) => {
           item.path = baseUrl + "/" + item.path;
+          if ("children" in item) {
+            item.children.map((i) => {
+              i.path = item.path + "/" + i.path;
+            });
+          }
           return item;
         });
+
         this.$store.dispatch("permission/setPartialRoutes", arr);
-        this.$router.push(arr[0].path);
+        this.$router.push(
+          "children" in arr[0] ? arr[0].children[0].path : arr[0].path
+        );
       } else {
         this.$store.dispatch("permission/setPartialRoutes", arr);
         this.$router.push(
