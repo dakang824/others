@@ -2,7 +2,7 @@
  * @Author: yukang 1172248038@qq.com
  * @Description:
  * @Date: 2020-12-16 20:34:11
- * @LastEditTime: 2020-12-17 13:22:43
+ * @LastEditTime: 2020-12-18 13:45:58
  */
 module.exports = {
   printWidth: 80,
@@ -18,5 +18,4 @@ module.exports = {
   arrowParens: "always",
   htmlWhitespaceSensitivity: "ignore",
   vueIndentScriptAndStyle: false,
-  endOfLine: "lf",
 };

@@ -2,7 +2,7 @@
  * @Author: yukang 1172248038@qq.com
  * @Description:
  * @Date: 2020-12-16 20:34:11
- * @LastEditTime: 2020-12-17 00:01:59
+ * @LastEditTime: 2020-12-18 13:21:01
  */
 module.exports = {
   // 部署时的URL
@@ -58,7 +58,7 @@ module.exports = {
   //设置生产环境是否屏蔽f12等开发组工具快捷键
   shieldF12: false,
   //是否开启登录拦截
-  loginInterception: false,
+  loginInterception: true,
   //是否开启登录RSA加密
   loginRSA: false,
   //是否依据mock数据生成webstorm HTTP Request请求文件

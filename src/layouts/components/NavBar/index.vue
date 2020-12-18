@@ -12,14 +12,23 @@
           ></i>
         </div> -->
       <div class="right-panel">
-        <el-tabs v-model="tab" @tab-click="handleClick">
-          <el-tab-pane
-            v-for="(item, index) in handleRoutes"
-            :key="index"
-            :name="'' + index + ''"
-            :label="item"
-          ></el-tab-pane>
-        </el-tabs>
+        <div style="display: flex; align-items: center">
+          <a
+            style="padding: 0 25px; font-size: 15px; color: #fff"
+            @click="handleGoHome"
+          >
+            首页
+          </a>
+          <el-tabs v-model="tab" @tab-click="handleClick">
+            <el-tab-pane
+              v-for="(item, index) in handleRoutes"
+              :key="index"
+              :name="'' + index + ''"
+              :label="item"
+            ></el-tab-pane>
+          </el-tabs>
+        </div>
+
         <div class="right-panel_info">
           <error-log></error-log>
           <full-screen-bar @refresh="refreshSelectedTag"></full-screen-bar>
@@ -29,6 +38,21 @@
             :icon="['fas', 'redo']"
             @click="refreshSelectedTag"
           ></vab-icon>
+          <div>
+            <div
+              @mouseenter="$refs.dropdownNews.open()"
+              @mouseleave="$refs.dropdownNews.close()"
+            >
+              <el-badge is-dot>
+                <DropdownNews ref="dropdownNews" />
+                <i
+                  class="el-icon-bell icon"
+                  style="font-size: 17px; font-weight: bold"
+                ></i>
+              </el-badge>
+            </div>
+          </div>
+
           <avatar></avatar>
         </div>
         <!--  <vab-icon
@@ -47,6 +71,7 @@ import { mapGetters } from "vuex";
 import Logo from "@/layouts/components/Logo";
 import { Avatar, FullScreenBar, ErrorLog } from "@/layouts/components";
 import { isExternal } from "@/utils/validate";
+import DropdownNews from "@/components/dropdownNews.vue";
 export default {
   name: "NavBar",
   components: {
@@ -54,6 +79,7 @@ export default {
     FullScreenBar,
     Avatar,
     Logo,
+    DropdownNews,
   },
   data() {
     return {
@@ -87,9 +113,16 @@ export default {
         allArr.push(item);
       }
     });
+    this.handleClick({ index: 0 });
   },
   methods: {
+    handleGoHome() {
+      this.$store.dispatch("user/logout").then(() => {
+        this.$router.push(`/login`);
+      });
+    },
     handleClick(tab) {
+      let index = tab.index;
       let allArr = [];
       let arr = this.routes.map((item, index) => {
         if (item.meta) {
@@ -97,10 +130,10 @@ export default {
         }
       });
 
-      this.$router.push(this.getPath(allArr[tab.index]));
-      this.$store.commit("permission/setSecondSide", allArr[tab.index]);
+      this.$router.push(this.getPath(allArr[index]));
+      this.$store.commit("permission/setSecondSide", allArr[index]);
       this.$store.dispatch("permission/setPartialRoutes", {});
-      this.$baseEventBus.$emit("tableActive", allArr[tab.index]);
+      this.$baseEventBus.$emit("tableActive", allArr[index]);
     },
     handleCollapse() {
       this.$store.dispatch("settings/changeCollapse");
@@ -158,7 +191,6 @@ export default {
 .nav-bar-container {
   position: relative;
   height: 60px;
-  overflow: hidden;
   user-select: none;
   background: $base-color-default;
   box-shadow: $base-box-shadow;

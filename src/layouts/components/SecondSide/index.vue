@@ -2,7 +2,7 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 00:03:18
- * @LastEditTime: 2020-12-17 20:43:58
+ * @LastEditTime: 2020-12-18 13:58:27
 -->
 <template>
   <div>
@@ -43,11 +43,11 @@ export default {
     this.$baseEventBus.$on("tableActive", (e) => {
       this.handleSelect(0);
     });
+    this.handleSelect(0);
   },
   methods: {
     handleSelect(e, s) {
       const secondSide = this.secondSide;
-      console.log(secondSide);
       this.activeIndex = e;
       const data = JSON.parse(JSON.stringify(secondSide));
       const baseUrl = this.getPath1(secondSide.path, secondSide.children[e]);

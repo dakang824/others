@@ -1,7 +1,7 @@
 <template>
   <section class="app-main-container">
-    <github-corner v-if="nodeEnv !== 'development'"></github-corner>
-    <vab-keel v-if="show" style="margin: 15px;">
+    <github-corner v-if="nodeEnv"></github-corner>
+    <vab-keel v-if="show" style="margin: 15px">
       <vab-keel-heading :img="true" />
       <vab-keel-text :lines="7" />
       <vab-keel-heading :img="true" />
@@ -11,7 +11,7 @@
     </vab-keel>
     <transition mode="out-in" name="fade-transform">
       <keep-alive :include="cachedRoutes" :max="10">
-        <router-view :key="key" style="min-height: 82vh;" />
+        <router-view :key="key" style="min-height: 82vh" />
       </keep-alive>
     </transition>
   </section>
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       show: true,
-      nodeEnv: process.env.NODE_ENV,
+      nodeEnv: false,
       fullYear: new Date().getFullYear(),
       copyright,
     };

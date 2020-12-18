@@ -1,3 +1,9 @@
+/*
+ * @Author: yukang 1172248038@qq.com
+ * @Description:
+ * @Date: 2020-12-16 20:34:11
+ * @LastEditTime: 2020-12-18 18:35:45
+ */
 import Vue from "vue";
 import { getInfo, login, logout } from "@/api/user";
 import {
@@ -37,7 +43,8 @@ const mutations = {
 };
 const actions = {
   async login({ commit }, userInfo) {
-    const { data } = await login(userInfo);
+    // const { data } = await login(userInfo);
+    const data = { accessToken: "admin-accessToken" };
     const accessToken = data[tokenName];
     if (accessToken) {
       commit("setAccessToken", accessToken);
@@ -61,7 +68,14 @@ const actions = {
     }
   },
   async getInfo({ commit, state }) {
-    const { data } = await getInfo(state.accessToken);
+    // const { data } = await getInfo(state.accessToken);
+    const data = {
+      permissions: ["admin"],
+      userName: "admin",
+      avatar:
+        "https://picsum.photos/50/50?random=fBC8B16F-88f3-7EA0-0bbc-3Afbf9c9cFBf",
+    };
+
     if (!data) {
       Vue.prototype.$baseMessage("验证失败，请重新登录...", "error");
       return false;
@@ -78,7 +92,7 @@ const actions = {
     }
   },
   async logout({ dispatch }) {
-    await logout(state.accessToken);
+    // await logout(state.accessToken);
     await dispatch("tagsBar/delAllRoutes", null, { root: true });
     await dispatch("resetAccessToken");
     await resetRouter();

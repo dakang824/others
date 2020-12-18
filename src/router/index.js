@@ -26,26 +26,26 @@ export const constantRoutes = [
 
 /*当settings.js里authentication配置的是intelligence时，views引入交给前端配置*/
 export const asyncRoutes = [
-  {
-    path: "/",
-    component: Layout,
-    redirect: "/index",
-    meta: {
-      title: "首页",
-      icon: "home",
-    },
-    children: [
-      {
-        path: "/index",
-        name: "Index",
-        component: () => import("@/views/index/index"),
-        meta: {
-          title: "首页",
-          affix: true,
-        },
-      },
-    ],
-  },
+  // {
+  //   path: "/",
+  //   component: Layout,
+  //   redirect: "/index",
+  //   meta: {
+  //     title: "首页",
+  //     icon: "home",
+  //   },
+  //   children: [
+  //     {
+  //       path: "/index",
+  //       name: "Index",
+  //       component: EmptyLayout,
+  //       meta: {
+  //         title: "首页",
+  //         target: "_blank",
+  //       },
+  //     },
+  //   ],
+  // },
   /* {
     path: "/test",
     component: Layout,
@@ -64,14 +64,14 @@ export const asyncRoutes = [
     ],
   }, */
   {
-    path: "/baseInfo",
+    path: "/",
     component: Layout,
-    redirect: "noRedirect",
+    redirect: "/index",
     name: "BaseInfo",
     meta: { title: "基础信息库", icon: "users-cog" },
     children: [
       {
-        path: "userManagement",
+        path: "/index",
         name: "UserManagement",
         component: EmptyLayout,
         meta: { title: "市场信息库" },
@@ -126,13 +126,15 @@ export const asyncRoutes = [
             name: "Websit",
             component: () => import("@/views/baseInfo/networkCarrier/websit"),
             meta: { title: "网站库" },
+            disable: true,
           },
           {
             path: "mobile-data-management",
             name: "MobileDataManagement",
             component: () =>
               import("@/views/baseInfo/networkCarrier/mobile-data-management"),
-            meta: { title: "移动端数据管理" },
+            meta: { title: "微信公众号" },
+            disable: true,
           },
           {
             path: "online-restaurant-of-catering-platform",
@@ -380,6 +382,7 @@ export const asyncRoutes = [
         meta: {
           title: "亮照亮标",
         },
+        disable: true,
         children: [
           {
             path: "Illumination-state",
@@ -428,6 +431,7 @@ export const asyncRoutes = [
           title: "知识产权",
           permissions: ["admin"],
         },
+        disable: true,
         children: [
           {
             path: "synchronous-data-management",
@@ -458,6 +462,7 @@ export const asyncRoutes = [
           title: "电子合同",
           permissions: ["admin"],
         },
+        disable: true,
         children: [
           {
             path: "automatic-monitoring",
@@ -497,6 +502,7 @@ export const asyncRoutes = [
           title: "电子取证",
           permissions: ["admin"],
         },
+        disable: true,
         children: [
           {
             path: "existing-evidence",
@@ -543,6 +549,7 @@ export const asyncRoutes = [
           title: "协调监管",
           permissions: ["admin"],
         },
+        disable: true,
         children: [
           {
             path: "send-for-assistance",
@@ -578,7 +585,7 @@ export const asyncRoutes = [
         redirect: "noRedirect",
         name: "Icon",
         meta: {
-          title: "网络监测",
+          title: "网络抽检",
           permissions: ["admin"],
         },
         children: [
@@ -645,6 +652,27 @@ export const asyncRoutes = [
         path: "userManagement",
         name: "UserManagement",
         component: EmptyLayout,
+        meta: { title: "统计报表" },
+        children: [
+          {
+            path: "register",
+            name: "Register",
+            component: () => import("@/views/analysis/report/custom-report"),
+            meta: { title: "自定义报表" },
+          },
+          {
+            path: "remixIcon",
+            name: "RemixIcon",
+            component: () => import("@/views/analysis/report/custom-report"),
+            meta: { title: "可视化报表" },
+            disable: true,
+          },
+        ],
+      },
+      {
+        path: "userManagement",
+        name: "UserManagement",
+        component: EmptyLayout,
         meta: { title: "分析统计" },
         children: [
           {
@@ -656,7 +684,19 @@ export const asyncRoutes = [
               {
                 path: "administration",
                 component: () => import("@/views/businessApp/administration"),
-                meta: { title: "一般行政指导" },
+                meta: { title: "餐饮平台分析" },
+                disable: true,
+              },
+              {
+                path: "store",
+                component: () => import("@/views/businessApp/administration"),
+                meta: { title: "网店分析" },
+                disable: true,
+              },
+              {
+                path: "website",
+                component: () => import("@/views/businessApp/administration"),
+                meta: { title: "网站分析" },
                 disable: true,
               },
             ],
@@ -686,27 +726,6 @@ export const asyncRoutes = [
             component: () =>
               import("@/views/analysis/analysis/enterprise-registration"),
             meta: { title: "企业注册资本分析" },
-            disable: true,
-          },
-        ],
-      },
-      {
-        path: "userManagement",
-        name: "UserManagement",
-        component: EmptyLayout,
-        meta: { title: "统计报表" },
-        children: [
-          {
-            path: "register",
-            name: "Register",
-            component: () => import("@/views/analysis/report/custom-report"),
-            meta: { title: "自定义报表" },
-          },
-          {
-            path: "remixIcon",
-            name: "RemixIcon",
-            component: () => import("@/views/analysis/report/custom-report"),
-            meta: { title: "可视化报表" },
             disable: true,
           },
         ],
@@ -975,18 +994,18 @@ export const asyncRoutes = [
         meta: { title: "企业画像分析" },
         children: [
           {
-            path: "corporate-portrait",
-            component: () => import("@/views/data-analysis/corporate-portrait"),
-            meta: { title: "企业画像分析" },
-            disable: true,
-          },
-          {
             path: "website-carrier-portrait",
             component: () =>
               import(
                 "@/views/data-analysis/corporate-portrait/website-carrier-portrait"
               ),
             meta: { title: "网站载体画像分析" },
+          },
+          {
+            path: "corporate-portrait",
+            component: () => import("@/views/data-analysis/corporate-portrait"),
+            meta: { title: "企业画像分析" },
+            disable: true,
           },
           {
             path: "online-product-image",
@@ -1011,6 +1030,38 @@ export const asyncRoutes = [
                 "@/views/data-analysis/corporate-portrait/e-commerce-research"
               ),
             meta: { title: "电商调研分析" },
+          },
+        ],
+      },
+      {
+        path: "e-commerce-research",
+        component: EmptyLayout,
+        meta: { title: "网店分析" },
+        disable: true,
+        children: [
+          {
+            path: "e-commerce-research",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+              ),
+            meta: { title: "网店分析" },
+          },
+        ],
+      },
+      {
+        path: "e-commerce-research",
+        component: EmptyLayout,
+        meta: { title: "网站分析" },
+        disable: true,
+        children: [
+          {
+            path: "e-commerce-research",
+            component: () =>
+              import(
+                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+              ),
+            meta: { title: "网站分析" },
           },
         ],
       },
@@ -1282,20 +1333,6 @@ export const asyncRoutes = [
         meta: { title: "专项搜索" },
         children: [
           {
-            path: "product-search",
-            component: () =>
-              import("@/views/market-monitoring/special-search/product-search"),
-            meta: { title: "商品搜索" },
-            disable: true,
-          },
-          {
-            path: "content-search",
-            component: () =>
-              import("@/views/market-monitoring/special-search/content-search"),
-            meta: { title: "内容搜索" },
-            disable: true,
-          },
-          {
             path: "trademark-search",
             component: () =>
               import(
@@ -1318,6 +1355,20 @@ export const asyncRoutes = [
                 "@/views/market-monitoring/special-search/one-click-search"
               ),
             meta: { title: "网监一键搜" },
+          },
+          {
+            path: "product-search",
+            component: () =>
+              import("@/views/market-monitoring/special-search/product-search"),
+            meta: { title: "商品搜索" },
+            disable: true,
+          },
+          {
+            path: "content-search",
+            component: () =>
+              import("@/views/market-monitoring/special-search/content-search"),
+            meta: { title: "内容搜索" },
+            disable: true,
           },
         ],
       },

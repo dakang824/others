@@ -64,12 +64,12 @@ export default {
 @mixin active {
   &:hover {
     color: $base-color-white !important;
-    background-color: $base-menu-background-active !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
   }
 
   &.is-active {
     color: $base-color-white !important;
-    background-color: $base-menu-background-active !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
   }
 }
 

@@ -1,3 +1,9 @@
+<!--
+ * @Author: yukang 1172248038@qq.com
+ * @Description: 
+ * @Date: 2020-12-16 20:34:11
+ * @LastEditTime: 2020-12-18 18:39:03
+-->
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
   <head>
@@ -22,14 +28,18 @@
     <div id="vue-admin-beautiful">
       <div class="first-loading-wrp">
         <div class="loading-wrp">
-          <span class="dot dot-spin"><i></i><i></i><i></i><i></i></span>
+          <span class="dot dot-spin">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
         </div>
         <h1><%= VUE_APP_TITLE %></h1>
       </div>
     </div>
     <script>
-      /^http(s*):\/\//.test(location.href) ||
-        alert("基于vue-admin-beautiful开发的项目需要部署到服务器下访问");
+      /^http(s*):\/\//.test(location.href);
     </script>
   </body>
 </html>
