@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 15:38:28
+ * @LastEditTime: 2020-12-19 14:15:13
 -->
 <template>
-  <div>发送协查</div>
+  <div><img src="@/assets/image/80_03.png" width="100%" /></div>
 </template>
 
 <script>

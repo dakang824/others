@@ -126,15 +126,36 @@ export const asyncRoutes = [
             name: "Websit",
             component: () => import("@/views/baseInfo/networkCarrier/websit"),
             meta: { title: "网站库" },
-            disable: true,
           },
           {
             path: "mobile-data-management",
             name: "MobileDataManagement",
-            component: () =>
-              import("@/views/baseInfo/networkCarrier/mobile-data-management"),
-            meta: { title: "微信公众号" },
-            disable: true,
+            component: () => import("@/views/analysis/report"),
+            meta: { title: "移动端数据管理" },
+            children: [
+              {
+                path: "administration",
+                component: () =>
+                  import(
+                    "@/views/baseInfo/networkCarrier/mobile-data-management"
+                  ),
+                meta: { title: "微信公众号" },
+                disable: true,
+                noCheck: true,
+              },
+              {
+                path: "store",
+                component: () => import("@/views/analysis/report/test2"),
+                meta: { title: "微信小程序" },
+                disable: true,
+              },
+              {
+                path: "website",
+                component: () => import("@/views/analysis/report/test3"),
+                meta: { title: "APP采集管理" },
+                disable: true,
+              },
+            ],
           },
           {
             path: "online-restaurant-of-catering-platform",
@@ -549,7 +570,6 @@ export const asyncRoutes = [
           title: "协调监管",
           permissions: ["admin"],
         },
-        disable: true,
         children: [
           {
             path: "send-for-assistance",
@@ -566,7 +586,6 @@ export const asyncRoutes = [
                 "@/views/businessApp/electronic-forensics/Issue-of-certificatet"
               ),
             meta: { title: "协查管理" },
-            disable: true,
           },
           {
             path: "statistical-analysis",
@@ -575,7 +594,6 @@ export const asyncRoutes = [
                 "@/views/businessApp/electronic-forensics/statistical-analysis"
               ),
             meta: { title: "统计分析" },
-            disable: true,
           },
         ],
       },

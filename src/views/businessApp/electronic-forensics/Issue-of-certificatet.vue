@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 15:34:36
+ * @LastEditTime: 2020-12-19 14:18:04
 -->
 <template>
-  <div>出证管理</div>
+  <div><img src="@/assets/image/81_03.png" width="100%" /></div>
 </template>
 
 <script>
