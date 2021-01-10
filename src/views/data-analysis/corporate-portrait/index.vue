@@ -2,10 +2,10 @@
  * @Author: yukang 1172248038@qq.com
  * @Description: 
  * @Date: 2020-12-17 14:23:19
- * @LastEditTime: 2020-12-17 22:49:08
+ * @LastEditTime: 2020-12-20 21:02:07
 -->
 <template>
-  <div>企业画像分析</div>
+  <div><img src="@/assets/image/99.png" width="100%" /></div>
 </template>
 
 <script>

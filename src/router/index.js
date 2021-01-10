@@ -1013,26 +1013,9 @@ export const asyncRoutes = [
         meta: { title: "企业画像分析" },
         children: [
           {
-            path: "website-carrier-portrait",
-            component: () =>
-              import(
-                "@/views/data-analysis/corporate-portrait/website-carrier-portrait"
-              ),
-            meta: { title: "网站载体画像分析" },
-          },
-          {
             path: "corporate-portrait",
             component: () => import("@/views/data-analysis/corporate-portrait"),
             meta: { title: "企业画像分析" },
-            disable: true,
-          },
-          {
-            path: "online-product-image",
-            component: () =>
-              import(
-                "@/views/data-analysis/corporate-portrait/online-product-image"
-              ),
-            meta: { title: "网络商品图像分析" },
           },
         ],
       },
@@ -1053,34 +1036,32 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: "e-commerce-research",
+        path: "erce-research",
         component: EmptyLayout,
-        meta: { title: "网店分析" },
-        disable: true,
+        meta: { title: "网络商品图像分析" },
         children: [
           {
-            path: "e-commerce-research",
+            path: "merce-research",
             component: () =>
               import(
-                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+                "@/views/data-analysis/corporate-portrait/online-product-image"
               ),
-            meta: { title: "网店分析" },
+            meta: { title: "网络商品图像分析" },
           },
         ],
       },
       {
-        path: "e-commerce-research",
+        path: "research",
         component: EmptyLayout,
-        meta: { title: "网站分析" },
-        disable: true,
+        meta: { title: "网站载体画像分析" },
         children: [
           {
-            path: "e-commerce-research",
+            path: "research",
             component: () =>
               import(
-                "@/views/data-analysis/corporate-portrait/e-commerce-research"
+                "@/views/data-analysis/corporate-portrait/website-carrier-portrait"
               ),
-            meta: { title: "网站分析" },
+            meta: { title: "网站载体画像分析" },
           },
         ],
       },
